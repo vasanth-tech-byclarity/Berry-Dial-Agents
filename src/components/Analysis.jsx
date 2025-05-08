@@ -287,32 +287,34 @@ export default function Analysis() {
                   <div className="p-4 md:p-5 space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                       <div>
-                        <label className="block font-bold text-xs md:text-sm text-[#333333DE] leading-[17px] font-inter mb-3">
-                          ElevanLabs Criteria
+                        <label className="block font-semibold
+                         text-xs sm:text-sm md:text-base text-[#333333DE] leading-[17px] font-inter mb-3">
+                          Evaluation criteria
                         </label>
                         <div className="border border-gray-200 rounded-md p-3 md:p-2">
-                          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
-                            <p className="text-xs text-gray-500">
-                              Add custom pronunciations for specific words
+                          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-2">
+                            <p className="text-xs sm:text-sm md:text-base text-gray-500 w-full sm:w-[70%]">
+                              Define custom criteria to evaluate conversations against. You can find the evaluation results for each conversation in <u>the history tab</u>.
                             </p>
-                            <button className="w-full sm:w-auto px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 text-xs md:text-sm">
-                              Add Document
+                            <button className="w-full sm:w-[100px] px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 text-xs md:text-sm">
+                              Add Criteria
                             </button>
                           </div>
                         </div>
                       </div>
 
                       <div>
-                        <label className="block font-bold text-xs md:text-sm text-[#333333DE] leading-[17px] font-inter mb-3">
-                          Data Collections
+                        <label className="block font-semibold
+                         text-xs sm:text-sm md:text-base text-[#333333DE] leading-[17px] font-inter mb-3">
+                          Data collection
                         </label>
                         <div className="border border-gray-200 rounded-md p-3 md:p-4">
-                          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
-                            <p className="text-xs text-gray-500">
-                              Add custom pronunciations for specific words
+                          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-2">
+                            <p className="text-xs sm:text-sm md:text-base text-gray-500 w-full sm:w-[70%]">
+                              Define custom data specifications to extract from conversation transcripts. You can find the evaluation results for each conversation in <u>the history tab</u>.
                             </p>
-                            <button className="w-full sm:w-auto px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 text-xs md:text-sm">
-                              Add Document
+                            <button className="w-full sm:w-[100px] px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 text-xs md:text-sm">
+                              Add Item
                             </button>
                           </div>
                         </div>

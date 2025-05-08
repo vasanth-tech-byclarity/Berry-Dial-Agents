@@ -16,8 +16,8 @@ import { Switch } from "@headlessui/react";
 const InputRow = ({ label, description, input }) => (
   <div className="p-2 rounded flex flex-col sm:flex-row justify-between items-start gap-2">
     <div className="flex-1 w-full sm:w-auto">
-      <label className="font-semibold block mb-1">{label}</label>
-      <p className="text-sm text-gray-600">{description}</p>
+      <label className="font-semibold block mb-1 text-xs sm:text-sm md:text-base">{label}</label>
+      <p className="text-xs sm:text-sm md:text-base text-gray-600">{description}</p>
     </div>
     <div className="w-full sm:w-40 mt-1">{input}</div>
   </div>
@@ -30,7 +30,7 @@ const FormatDropdown = () => {
   return (
     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border p-4 rounded">
       <div className="flex-1 w-full sm:w-auto">
-        <p className="text-sm text-gray-600">Select the input format you want to use for automatic speech recognition.</p>
+        <p className="text-xs sm:text-sm md:text-base text-gray-600">Select the input format you want to use for automatic speech recognition.</p>
       </div>
       <div className="w-full sm:w-40">
         <div className="relative w-full">
@@ -38,7 +38,7 @@ const FormatDropdown = () => {
             onClick={() => setIsOpen(!isOpen)}
             className="relative w-full border text-black px-4 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none focus:ring-2 focus:ring-purple-500 hover:bg-gray-50 active:bg-gray-100"
           >
-            <span className="block truncate pr-8">{selectedFormat}</span>
+            <span className="block truncate pr-8 text-xs sm:text-sm md:text-base">{selectedFormat}</span>
             <div className="absolute right-2 top-1/2 -translate-y-1/2">
               {isOpen ? (
                 <MdKeyboardArrowUp size={20} className="text-gray-600" />
@@ -56,7 +56,7 @@ const FormatDropdown = () => {
               ></div>
               <div className="absolute z-20 w-full mt-1 bg-white border rounded-md shadow-lg">
                 <div
-                  className="px-4 py-3 hover:bg-purple-50 active:bg-purple-100 cursor-pointer text-sm"
+                  className="px-4 py-3 hover:bg-purple-50 active:bg-purple-100 cursor-pointer text-xs sm:text-sm md:text-base"
                   onClick={() => {
                     setSelectedFormat("PCM 16000Hz");
                     setIsOpen(false);
@@ -95,7 +95,7 @@ const CharacteristicsDropdown = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="relative w-full border text-black px-4 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none focus:ring-2 focus:ring-purple-500"
       >
-        <span className="block truncate">{selectedCharacteristic.name}</span>
+        <span className="block truncate text-xs sm:text-sm md:text-base">{selectedCharacteristic.name}</span>
         <div className="absolute right-2 top-1/2 -translate-y-1/2">
           {isOpen ? (
             <MdKeyboardArrowUp size={20} className="text-gray-600" />
@@ -115,7 +115,7 @@ const CharacteristicsDropdown = () => {
             {characteristics.map((characteristic) => (
               <div
                 key={characteristic.id}
-                className="flex items-center gap-2 px-4 py-2 hover:bg-purple-50 cursor-pointer"
+                className="flex items-center gap-2 px-4 py-2 hover:bg-purple-50 cursor-pointer text-xs sm:text-sm md:text-base"
                 onClick={() => {
                   setSelectedCharacteristic(characteristic);
                   setIsOpen(false);
@@ -164,7 +164,7 @@ export default function Advanced() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col text-sm text-gray-700 font-sans">
+    <div className="min-h-screen flex flex-col text-xs sm:text-sm md:text-base text-gray-700 font-sans">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center h-14 border-b px-4 md:px-6 bg-white shadow-sm">
         <div className="flex items-center flex-1">
@@ -182,7 +182,7 @@ export default function Advanced() {
               BerryDial
             </div>
 
-            <div className="hidden md:block text-xs md:text-sm lg:text-base text-gray-500 mx-4 lg:mx-32">
+            <div className="hidden md:block text-xs sm:text-sm md:text-base text-gray-500 mx-4 lg:mx-32">
               Dashboard / <span className="text-black">Default</span>
             </div>
           </div>
@@ -199,7 +199,7 @@ export default function Advanced() {
           </button>
           <div className="relative">
             <button
-              className="flex items-center gap-1 md:gap-2 text-xs md:text-sm lg:text-base text-gray-700 p-2"
+              className="flex items-center gap-1 md:gap-2 text-xs sm:text-sm md:text-base text-gray-700 p-2"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
               <AiOutlineUser className="text-base md:text-lg lg:text-xl" />
@@ -218,19 +218,19 @@ export default function Advanced() {
                 ></div>
                 <div className="absolute right-0 mt-4 md:mt-4 w-28 md:w-48 bg-white border rounded-md shadow-lg z-20">
                   <div
-                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs md:text-sm lg:text-base mt-1 md:mt-0"
+                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs sm:text-sm md:text-base mt-1 md:mt-0"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Profile
                   </div>
                   <div
-                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs md:text-sm lg:text-base mt-1 md:mt-0"
+                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs sm:text-sm md:text-base mt-1 md:mt-0"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Settings
                   </div>
                   <div
-                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs md:text-sm lg:text-base mt-1 md:mt-0"
+                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs sm:text-sm md:text-base mt-1 md:mt-0"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Logout
@@ -268,7 +268,7 @@ export default function Advanced() {
           </button>
           <nav className="p-4 space-y-4">
             <div
-              className="flex items-center text-purple-700 font-semibold cursor-pointer pt-2 text-xs md:text-sm lg:text-base"
+              className="flex items-center text-purple-700 font-semibold cursor-pointer pt-2 text-xs sm:text-sm md:text-base"
               onClick={handleDashboard}
             >
               <PiChartPieSliceFill size={16} className="mr-3" />
@@ -277,7 +277,7 @@ export default function Advanced() {
               </span>
             </div>
             <div
-              className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs md:text-sm lg:text-base"
+              className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs sm:text-sm md:text-base"
               onClick={handleAgentCustomization}
             >
               <ImUsers size={16} className="mr-3" />
@@ -285,13 +285,13 @@ export default function Advanced() {
                 Agent Customization
               </span>
             </div>
-            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer pb-2 text-xs md:text-sm lg:text-base">
+            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer pb-2 text-xs sm:text-sm md:text-base">
               <FaPhoneAlt size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
                 Call Logs
               </span>
             </div>
-            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer text-xs md:text-sm lg:text-base">
+            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer text-xs sm:text-sm md:text-base">
               <PiUserList size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
                 Account Settings
@@ -299,13 +299,13 @@ export default function Advanced() {
             </div>
           </nav>
           <div className="px-4 mb-24 md:mb-[70px] space-y-2">
-            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs md:text-sm lg:text-base">
+            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs sm:text-sm md:text-base">
               <LuSquareArrowOutUpRight size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
                 Updates & FAQ
               </span>
             </div>
-            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs md:text-sm lg:text-base">
+            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs sm:text-sm md:text-base">
               <RxExit size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
                 Log out
@@ -324,7 +324,7 @@ export default function Advanced() {
                 onClick={handleDashboard}
               >
                 <FaPlus size={14} />
-                <span className="text-xs md:text-sm lg:text-base">
+                <span className="text-xs sm:text-sm md:text-base">
                   Create New Agent
                 </span>
               </button>
@@ -335,7 +335,7 @@ export default function Advanced() {
                     {[1, 2, 3, 4, 5].map((num) => (
                       <div
                         key={num}
-                        className="text-xs md:text-sm lg:text-base font-medium flex items-center mb-6"
+                        className="text-xs sm:text-sm md:text-base font-medium flex items-center mb-6"
                       >
                         <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
                           <AiOutlineUser
@@ -368,14 +368,10 @@ export default function Advanced() {
                 <div className="flex flex-col sm:flex-row overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0 space-y-2 sm:space-y-0">
                   <span
                     onClick={() => {
-                      setActiveTab("agent");
-                      handleAgentCustomization();
+                      setActiveTab("create");
+                      handleCreateAgent();
                     }}
-                    className={`px-3 md:px-4 py-2 cursor-pointer sm:rounded-l-md whitespace-nowrap text-sm ${
-                      activeTab === "agent"
-                        ? "bg-purple-700 text-white"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                    }`}
+                    className={`px-3 md:px-4 py-2 cursor-pointer sm:rounded-l-md whitespace-nowrap text-sm ${"bg-gray-200 text-gray-700 hover:bg-gray-300 active:bg-gray-400"}`}
                   >
                     Agent
                   </span>
@@ -384,11 +380,7 @@ export default function Advanced() {
                       setActiveTab("voice");
                       handleVoice();
                     }}
-                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-sm ${
-                      activeTab === "voice"
-                        ? "bg-purple-700 text-white"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                    }`}
+                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-sm bg-gray-200 text-gray-700`}
                   >
                     Voice
                   </span>
@@ -400,7 +392,7 @@ export default function Advanced() {
                     className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-sm ${
                       activeTab === "analysis"
                         ? "bg-purple-700 text-white"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        : "bg-gray-200 text-gray-700 hover:bg-gray-300 active:bg-gray-400"
                     }`}
                   >
                     Analysis
@@ -413,17 +405,20 @@ export default function Advanced() {
                     className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-sm ${
                       activeTab === "security"
                         ? "bg-purple-700 text-white"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        : "bg-gray-200 text-gray-700 hover:bg-gray-300 active:bg-gray-400"
                     }`}
                   >
                     Security
                   </span>
                   <span
-                    onClick={() => setActiveTab("advanced")}
+                    onClick={() => {
+                      setActiveTab("advanced");
+                      handleAdvanced();
+                    }}
                     className={`px-3 md:px-4 py-2 cursor-pointer sm:rounded-r-md whitespace-nowrap text-sm ${
                       activeTab === "advanced"
                         ? "bg-purple-700 text-white"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        : "bg-gray-200 text-gray-700 hover:bg-gray-300 active:bg-gray-400"
                     }`}
                   >
                     Advanced
@@ -432,72 +427,69 @@ export default function Advanced() {
 
                 {/* Action buttons */}
                 <div className="flex gap-2 w-full sm:w-auto">
-                  <button className="flex-1 sm:flex-none border border-black text-black px-4 py-2 rounded-md text-sm hover:bg-gray-100 transition-colors min-w-[80px]">
+                  <button className="flex-1 sm:flex-none border border-black text-black px-4 py-2 rounded-md text-sm hover:bg-gray-100 active:bg-gray-200 transition-colors min-w-[80px]">
                     Clear
                   </button>
-                  <button className="flex-1 sm:flex-none bg-purple-700 text-white px-4 py-2 rounded-md text-sm hover:bg-purple-800 transition-colors min-w-[80px]">
+                  <button className="flex-1 sm:flex-none bg-purple-700 text-white px-4 py-2 rounded-md text-sm hover:bg-purple-800 active:bg-purple-900 transition-colors min-w-[80px]">
                     Save
                   </button>
                 </div>
               </div>
 
               <div className="flex justify-between items-center my-6">
-                <h2 className="text-base md:text-lg font-semibold">Advanced</h2>
+                <h2 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold">Advanced</h2>
               </div>
 
               <div className="max-w-3xl border p-4 md:p-5 rounded-lg font-sans space-y-4 mt-6 mb-24">
-                <h3 className="font-semibold mb-2">Turn timeout</h3>
+                <h3 className="font-semibold mb-2 text-xs sm:text-sm md:text-base">Turn timeout</h3>
                 <InputRow
                   description="The maximum number of seconds since the user last spoke. If exceeded, the agent will respond and force a turn. A value of -1 means the agent will never timeout and always wait for a response from the user."
                   input={
                     <input
                       type="number"
                       defaultValue={7}
-                      className="border px-3 py-1 w-full rounded"
+                      className="border px-3 py-1 w-full rounded text-xs sm:text-sm md:text-base"
                     />
                   }
                 />
 
-                {/* <h3 className="font-semibold">
-                  Max conversation duration
-                </h3> */}
-                <label className="font-semibold block mb-1">Max conversation duration</label>
+                <label className="font-semibold block mb-1 text-xs sm:text-sm md:text-base">Max conversation duration</label>
 
                 <div className="p-2 rounded flex flex-col sm:flex-row justify-between items-start gap-2 border">
                   <div className="flex-1 w-full sm:w-auto">
-                    <p className="text-sm text-gray-600 pt-2">The maximum number of seconds that a conversation can last.</p>
+                    <p className="text-xs sm:text-sm md:text-base text-gray-600 pt-2">The maximum number of seconds that a conversation can last.</p>
                   </div>
                   <div className="w-full sm:w-40 mt-1">
                     <input
                       type="number"
                       defaultValue={300}
-                      className="border px-3 py-1 w-full rounded"
+                      className="border px-3 py-1 w-full rounded text-xs sm:text-sm md:text-base"
                     />
                   </div>
                 </div>
 
                 <div className="p-2 rounded flex flex-col sm:flex-row justify-between items-start gap-4">
                   <div className="flex-1 w-full sm:w-auto">
-                    <label className="font-semibold block my-1">Keywords</label>
-                    <p className="text-sm text-gray-600">
+                    <label className="font-semibold block my-1 text-xs sm:text-sm md:text-base">Keywords</label>
+                    <p className="text-xs sm:text-sm md:text-base text-gray-600">
                       Define a comma-separated list of keywords that have a
                       higher likelihood of being predicted correctly.
                     </p>
                     <input
                       type="text"
-                      className="border px-3 py-3 my-2 w-full rounded focus:outline-none"
+                      className="border px-3 py-3 my-2 w-full rounded focus:outline-none text-xs sm:text-sm md:text-base"
                       placeholder="Enter keywords..."
                     />
                   </div>
                 </div>
 
                 <div>
-                <h3 className="font-semibold mb-2">User input audio format</h3>
+                <h3 className="font-semibold mb-2 text-xs sm:text-sm md:text-base">User input audio format</h3>
                 <FormatDropdown /> 
                 </div>                 
 
-                <h3 className="font-semibold">Client Events</h3>
-                <p className="text-sm text-gray-600 mb-2">
+                <h3 className="font-semibold text-xs sm:text-sm md:text-base">Client Events</h3>
+                <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-2">
                   Select the events that should be sent to the client. The
                   "audio" event must always be enabled. If "interruption" event
                   is disabled, agent will ignore user interruption and speak
@@ -506,35 +498,32 @@ export default function Advanced() {
 
                 <CharacteristicsDropdown />
 
-                <h3 className="font-semibold mb-2">Privacy Settings</h3>
+                <h3 className="font-semibold mb-2 text-xs sm:text-sm md:text-base">Privacy Settings</h3>
                 <div className="flex flex-col justify-between">
                   <div>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-xs sm:text-sm md:text-base text-gray-600">
                       This section allows you to configure the privacy settings
                       for the agent.
                     </p>
                   </div>
                   <div className="flex flex-row justify-between items-center border p-2 mt-3">
-                    <div className="text-base">
+                    <div className="text-xs sm:text-sm md:text-base">
                       Store Call Audio
                     </div>
-                    <Switch
-                      checked={storeAudio}
-                      onChange={setStoreAudio}
-                      className={`${
-                        storeAudio ? "bg-purple-700" : "bg-gray-200"
-                      } relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none`}
-                    >
-                      <span
-                        className={`${
-                          storeAudio ? "translate-x-6" : "translate-x-1"
-                        } inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
-                      />
-                    </Switch>
+                    <label className="relative inline-flex items-center cursor-pointer ml-auto">
+                          <input type="checkbox" className="sr-only peer" />
+                          <div
+                            className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full
+                           peer-checked:after:border-white after:content-[''] 
+                           after:absolute after:top-[2px] after:left-[2px] after:bg-white
+                            after:border-gray-300 after:border after:rounded-full after:h-4 
+                            after:w-4 after:transition-all peer-checked:bg-purple-700"
+                          ></div>
+                        </label>
                   </div>
                 </div>
 
-                <h3 className="font-semibold mb-2">
+                <h3 className="font-semibold mb-2 text-xs sm:text-sm md:text-base">
                   Conversations Retention Period
                 </h3>
                 <InputRow
@@ -543,48 +532,42 @@ export default function Advanced() {
                     <input
                       type="number"
                       defaultValue={730}
-                      className="border px-3 py-1 w-full rounded"
+                      className="border px-3 py-1 w-full rounded text-xs sm:text-sm md:text-base"
                     />
                   }
                 />
 
                 <div className="flex flex-col justify-between border p-2 gap-2">
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
-                    <h3 className="font-semibold mb-2 sm:mb-0">
+                    <h3 className="font-semibold mb-2 sm:mb-0 text-xs sm:text-sm md:text-base">
                       Delete Transcript and Derived Fields (PII)
                     </h3>
-                    <Switch
-                      checked={deleteTranscript}
-                      onChange={setDeleteTranscript}
-                      className={`${
-                        deleteTranscript ? "bg-purple-700" : "bg-gray-200"
-                      } relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none`}
-                    >
-                      <span
-                        className={`${
-                          deleteTranscript ? "translate-x-6" : "translate-x-1"
-                        } inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
-                      />
-                    </Switch>
+                    <label className="relative inline-flex items-center cursor-pointer ml-auto">
+                          <input type="checkbox" className="sr-only peer" />
+                          <div
+                            className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full
+                           peer-checked:after:border-white after:content-[''] 
+                           after:absolute after:top-[2px] after:left-[2px] after:bg-white
+                            after:border-gray-300 after:border after:rounded-full after:h-4 
+                            after:w-4 after:transition-all peer-checked:bg-purple-700"
+                          ></div>
+                        </label>
                   </div>
 
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
-                    <h3 className="font-semibold mb-2 sm:mb-0">
+                    <h3 className="font-semibold mb-2 sm:mb-0 text-xs sm:text-sm md:text-base">
                       Delete all personally identifiable information
                     </h3>
-                    <Switch
-                      checked={deletePII}
-                      onChange={setDeletePII}
-                      className={`${
-                        deletePII ? "bg-purple-700" : "bg-gray-200"
-                      } relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none`}
-                    >
-                      <span
-                        className={`${
-                          deletePII ? "translate-x-6" : "translate-x-1"
-                        } inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
-                      />
-                    </Switch>
+                    <label className="relative inline-flex items-center cursor-pointer ml-auto">
+                          <input type="checkbox" className="sr-only peer" />
+                          <div
+                            className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full
+                           peer-checked:after:border-white after:content-[''] 
+                           after:absolute after:top-[2px] after:left-[2px] after:bg-white
+                            after:border-gray-300 after:border after:rounded-full after:h-4 
+                            after:w-4 after:transition-all peer-checked:bg-purple-700"
+                          ></div>
+                        </label>
                   </div>
                 </div>
               </div>
@@ -594,7 +577,7 @@ export default function Advanced() {
       </div>
 
       {/* Footer */}
-      <footer className="fixed bottom-0 left-0 right-0 min-h-[40px] md:h-10 flex flex-col md:flex-row items-center justify-between px-4 md:px-6 py-2 md:py-8 text-xs md:text-sm lg:text-base border bg-white z-50">
+      <footer className="fixed bottom-0 left-0 right-0 min-h-[40px] md:h-10 flex flex-col md:flex-row items-center justify-between px-4 md:px-6 py-2 md:py-8 text-xs sm:text-sm md:text-base border bg-white z-50">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4 text-gray-500">
           <div>BerryDial</div>
           <div className="flex gap-4 ml-4 sm:ml-8">

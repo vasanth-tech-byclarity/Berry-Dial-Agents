@@ -48,17 +48,17 @@ const AgentLanguageDropdown = () => {
   return (
     <div className="relative">
       <div className="h-14">
-        <label className="block font-bold text-[14px] text-[#333333DE] leading-[17px] font-inter mb-1">
+        <label className="block text-xs sm:text-sm md:text-base font-semibold text-[#333333DE] leading-[17px] font-inter mb-1">
           Agent Language
         </label>
-        <p className="text-xs text-gray-500">
+        <p className="text-xs sm:text-sm md:text-base text-gray-500">
           Specify the primary language of your Agent
         </p>
       </div>
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative w-full border text-black pl-10 pr-8 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none focus:ring-2 focus:ring-purple-500"
+        className="sm:my-6 relative w-full border text-black pl-10 pr-8 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none focus:ring-2 focus:ring-purple-500 text-xs sm:text-sm md:text-base"
       >
         <div className="absolute left-2 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full overflow-hidden border border-gray-200 bg-gray-50">
           <img
@@ -87,7 +87,7 @@ const AgentLanguageDropdown = () => {
             {languages.map((language) => (
               <div
                 key={language.code}
-                className="flex items-center gap-2 px-4 py-2 hover:bg-purple-50 cursor-pointer"
+                className="flex items-center gap-2 px-4 py-2 hover:bg-purple-50 cursor-pointer text-xs sm:text-sm md:text-base"
                 onClick={() => {
                   setSelectedLanguage(language);
                   setIsOpen(false);
@@ -154,17 +154,18 @@ const AdditionalLanguageDropdown = () => {
   return (
     <div className="relative">
       <div className="h-14">
-        <label className="block font-bold text-[14px] text-[#333333DE] leading-[17px] font-inter mb-1">
+        <label className="block text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-[#333333DE] leading-[17px] font-inter mb-1">
           Additional Languages
         </label>
-        <p className="text-xs text-gray-500">
+        <p className="text-xs sm:text-sm md:text-base text-gray-500">
           Specify additional languages which callers can choose from
         </p>
       </div>
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative w-full border text-black pl-10 pr-8 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none focus:ring-2 focus:ring-purple-500"
+        className="sm:my-6 relative w-full border text-black pl-10 pr-8 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none focus:ring-2 focus:ring-purple-500 text-xs sm:text-sm md:text-base 
+       "
       >
         <div className="absolute left-2 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full overflow-hidden border border-gray-200 bg-gray-50">
           <img
@@ -193,7 +194,7 @@ const AdditionalLanguageDropdown = () => {
             {languages.map((language) => (
               <div
                 key={language.code}
-                className="flex items-center gap-2 px-4 py-2 hover:bg-purple-50 cursor-pointer"
+                className="flex items-center gap-2 px-4 py-2 hover:bg-purple-50 cursor-pointer text-xs sm:text-sm md:text-base lg:text-lg"
                 onClick={() => {
                   setSelectedLanguage(language);
                   setIsOpen(false);
@@ -235,15 +236,15 @@ const CharacteristicsDropdown = () => {
   return (
     <div className="relative">
       <div className="h-14">
-        <label className="block font-bold text-[14px] text-[#333333DE] leading-[17px] font-inter mb-1">
+        <label className="block text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-[#333333DE] leading-[17px] font-inter mb-1">
           Characteristics
         </label>
-        <p className="text-xs text-gray-500">Specify Character of your Agent</p>
+        <p className="text-xs sm:text-sm md:text-base text-gray-500">Specify Character of your Agent</p>
       </div>
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative w-full border text-black px-4 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none focus:ring-2 focus:ring-purple-500"
+        className="sm:my-6 relative w-full border text-black px-4 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none focus:ring-2 focus:ring-purple-500 text-xs sm:text-sm md:text-base"
       >
         {selectedCharacteristic.name}
         <div className="absolute right-2 top-1/2 -translate-y-1/2">
@@ -605,7 +606,7 @@ export default function AgentCustomization() {
 
               <div className="space-y-6 mt-6 mb-24">
                 <div className="flex justify-between items-center">
-                  <h2 className="text-lg font-semibold">Agent Settings</h2>
+                  <h2 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold">Agent Settings</h2>
                 </div>
 
                 <div className="bg-white border shadow rounded-lg">
@@ -629,32 +630,30 @@ export default function AgentCustomization() {
                     {/* Description and First Message - Stack on mobile/tablet, side by side on desktop */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
                       <div>
-                        <label className="block font-bold text-xs sm:text-sm md:text-base text-[#333333DE] leading-[17px] font-inter mb-1">
+                        <label className="block font-bold text-xs sm:text-sm md:text-base lg:text-lg text-[#333333DE] leading-[17px] font-inter mb-1">
                           Description
                         </label>
-                        <p className="text-xs sm:text-sm text-gray-500 mb-2">
+                        <p className="text-xs sm:text-sm md:text-base   text-gray-500 mb-2">
                           The description is used to determine the persona of
                           the agent and the context of the conversation
                         </p>
                         <textarea
-                          className="border border-gray-300 rounded-md w-full p-2 text-black h-[104px] resize-none focus:outline-none focus:ring-2 focus:ring-purple-500 text-xs sm:text-sm"
+                          className="text-xs sm:text-sm border border-gray-300 rounded-md w-full p-2 text-black h-[104px] resize-none focus:outline-none focus:ring-2 focus:ring-purple-500"
                           defaultValue="You are a support agent named Eric. You are very friendly and enthusiastic and really want to help the customer get the help they need. Answer in 3 to 7 sentences in most cases."
                         ></textarea>
                       </div>
                       <div>
-                        <label className="block font-bold text-xs sm:text-sm md:text-base text-[#333333DE] leading-[17px] font-inter mb-1">
+                        <label className="block font-bold text-xs sm:text-sm md:text-base lg:text-lg text-[#333333DE] leading-[17px] font-inter mb-1">
                           First message
                         </label>
-                        <p className="text-xs sm:text-sm text-gray-500 mb-2">
+                        <p className="text-xs sm:text-sm md:text-base text-gray-500 mb-2">
                           The first message the agent will say. If empty, the
                           agent will wait for the user to start the conversation
                         </p>
                         <div className="border border-gray-200 rounded-md px-2 sm:px-4 py-2 sm:h-[104px] flex items-center justify-center">
                           <div className="flex flex-col sm:flex-row gap-2 w-full">
-                            <input
-                              className="border border-gray-300 rounded-md flex-1 p-2 text-black resize-none focus:outline-none focus:ring-2 focus:ring-purple-500 text-xs sm:text-sm"
-                              defaultValue="Hi, I'm Eric. How can I help you today?"
-                            />
+                            
+                            <p className="text-xs sm:text-sm md:text-base">Hi, I'm Eric. How can I help you today?</p>
                             <button className="bg-black text-white px-2 sm:px-3 py-1 sm:py-2 rounded-md whitespace-nowrap text-xs sm:text-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500">
                               + Add Variable
                             </button>
@@ -669,7 +668,7 @@ export default function AgentCustomization() {
                         Dynamic Variables
                       </label>
                       <div className="border border-gray-200 rounded-md p-2 sm:p-4">
-                        <p className="text-xs sm:text-sm text-gray-500">
+                        <p className="text-xs sm:text-sm md:text-base text-gray-500">
                           Variables like in your prompts and first message will
                           be replaced with actual values when the conversation
                           starts.{" "}
@@ -689,7 +688,7 @@ export default function AgentCustomization() {
                         LLM
                       </label>
                       <div className="border border-gray-200 rounded-md p-2 sm:p-4">
-                        <p className="text-xs sm:text-sm text-gray-500">
+                        <p className="text-xs sm:text-sm md:text-base text-gray-500">
                           Select which provider and model to use for the LLM. If
                           your chosen LLM is not available at the moment or
                           something goes wrong, we will redirect the
@@ -707,7 +706,7 @@ export default function AgentCustomization() {
                           Temperature
                         </label>
                         <div className="h-auto sm:h-[120px] border border-gray-200 rounded-md p-2 sm:p-4">
-                          <p className="text-xs sm:text-sm text-gray-500 mb-2">
+                          <p className="text-xs sm:text-sm md:text-base text-gray-500 mb-2">
                             Temperature is a parameter that controls the
                             creativity or randomness of the responses generated
                             by the LLM.
@@ -728,7 +727,7 @@ export default function AgentCustomization() {
                           Limit token usage
                         </label>
                         <div className="h-auto sm:h-[120px] border border-gray-200 rounded-md p-2 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
-                          <p className="text-xs sm:text-sm text-gray-500">
+                          <p className="text-xs sm:text-sm md:text-base text-gray-500">
                             Configure the maximum number of tokens that the LLM
                             can predict. A limit will be applied if the value is
                             greater than 0.
@@ -751,7 +750,7 @@ export default function AgentCustomization() {
                       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between my-2">
                         <div className="w-full sm:flex sm:gap-2">
                           <div className="flex flex-col sm:flex-row gap-2 border border-gray-200 rounded-md p-2 sm:p-3 w-full">
-                            <p className="text-xs sm:text-sm">
+                            <p className="text-xs sm:text-sm md:text-base">
                               Provide the LLM with domain-specific information
                               to help it answer questions more accurately.
                             </p>
@@ -769,7 +768,7 @@ export default function AgentCustomization() {
                         Use RAG
                       </label>
                       <div className="border rounded-md p-2 sm:p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
-                        <p className="text-gray-600 text-xs sm:text-sm">
+                        <p className="text-gray-600 text-xs sm:text-sm md:text-base">
                           Retrieval-Augmented Generation (RAG) increases the
                           agent's maximum Knowledge Base size. The agent will
                           have access to relevant pieces of attached Knowledge
@@ -822,7 +821,7 @@ export default function AgentCustomization() {
                               <span className="bg-gray-200 text-gray-600 text-xs sm:text-sm px-2 py-0.5 rounded-md">
                                 System
                               </span>
-                              <p className="text-gray-600 text-xs sm:text-sm my-1.5">
+                              <p className="text-gray-600 text-xs sm:text-sm md:text-base my-1.5">
                                 Gives agent the ability to end the call with the
                                 user.
                               </p>
@@ -855,8 +854,8 @@ export default function AgentCustomization() {
                       </label>
                       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between my-2">
                         <div className="w-full sm:flex sm:gap-2">
-                          <div className="flex flex-col sm:flex-row gap-2 border border-gray-200 rounded-md p-2 w-full">
-                            <p className="text-xs sm:text-sm">
+                          <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 border border-gray-200 rounded-md p-2 w-full">
+                            <p className="text-xs sm:text-sm md:text-base">
                               Create and manage secure secrets that can be
                               accessed across your workspace
                             </p>

@@ -27,20 +27,22 @@ const VoiceDropdown = () => {
     { id: "custom", name: "Custom Voice" },
   ];
 
+  
+
   return (
     <div className="relative">
       <div className="h-14">
-        <label className="block font-bold text-[14px] text-[#333333DE] leading-[17px] font-inter mb-2">
+        <label className="block font-semibold text-xs sm:text-sm md:text-base text-[#333333DE] leading-[17px] font-inter mb-2">
           Voice
         </label>
-        <p className="text-xs text-gray-500">
+        <p className="text-xs sm:text-sm md:text-base text-gray-600">
           Select the Eleven Labs voice you want to use for the agent
         </p>
       </div>
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative w-full border text-black px-4 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none focus:ring-2 focus:ring-purple-500 hover:bg-gray-50 active:bg-gray-100"
+        className="relative w-full border text-black my-2 px-4 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none focus:ring-2 focus:ring-purple-500 hover:bg-gray-50 active:bg-gray-100"
       >
         {selectedVoice.name}
         <div className="absolute right-2 top-1/2 -translate-y-1/2">
@@ -140,6 +142,7 @@ export default function Voice() {
   const handleSecurity = () => navigate("/security");
   const handleAdvanced = () => navigate("/advanced");
   const handleDashboard = () => navigate("/dashboard");
+  const handleAgentCustomization = () => navigate("/agent-customization");
 
   React.useEffect(() => {
     const handleResize = () => {
@@ -151,25 +154,25 @@ export default function Voice() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col text-sm text-gray-700 font-sans">
+    <div className="min-h-screen flex flex-col text-[10px] sm:text-[12px] md:text-sm text-gray-700 font-sans">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center h-14 border-b px-4 md:px-6 bg-white shadow-sm">
         <div className="flex items-center flex-1">
           <button
             onClick={toggleSidebar}
-            className="mr-3 text-gray-600 hover:text-purple-700 active:text-purple-800 md:hidden"
+            className="mr-3 text-gray-600 hover:text-purple-700 lg:hidden"
           >
             {isSidebarOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
           </button>
           <div className="flex-1 flex items-center justify-between md:justify-start">
             <div
-              className="text-purple-700 font-bold text-base md:text-lg lg:text-xl cursor-pointer hover:text-purple-800 active:text-purple-900"
+              className="text-purple-700 font-bold text-base md:text-lg lg:text-xl cursor-pointer"
               onClick={landingPage}
             >
               BerryDial
             </div>
 
-            <div className="hidden md:block text-xs md:text-sm lg:text-base text-gray-500 mx-32">
+            <div className="hidden md:block text-xs sm:text-sm md:text-base text-gray-500 mx-4 lg:mx-32">
               Dashboard / <span className="text-black">Default</span>
             </div>
           </div>
@@ -177,8 +180,8 @@ export default function Voice() {
 
         <div className="flex items-center">
           <button
-            className={`text-gray-500 hover:text-purple-700 active:text-purple-800 p-1 ${
-              isDropdownOpen ? "text-purple-700" : ""
+            className={`text-gray-500 hover:text-purple-700 p-1 ${
+              isNotificationActive ? "text-purple-700" : ""
             }`}
             onClick={() => setIsNotificationActive(!isNotificationActive)}
           >
@@ -186,7 +189,7 @@ export default function Voice() {
           </button>
           <div className="relative">
             <button
-              className="flex items-center gap-1 md:gap-2 text-xs md:text-sm lg:text-base text-gray-700 p-2 hover:text-purple-700 active:text-purple-800"
+              className="flex items-center gap-1 md:gap-2 text-xs sm:text-sm md:text-base text-gray-700 p-2"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
               <AiOutlineUser className="text-base md:text-lg lg:text-xl" />
@@ -205,19 +208,19 @@ export default function Voice() {
                 ></div>
                 <div className="absolute right-0 mt-4 md:mt-4 w-28 md:w-48 bg-white border rounded-md shadow-lg z-20">
                   <div
-                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs md:text-sm lg:text-base mt-1 md:mt-0"
+                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs sm:text-sm md:text-base mt-1 md:mt-0"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Profile
                   </div>
                   <div
-                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs md:text-sm lg:text-base mt-1 md:mt-0"
+                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs sm:text-sm md:text-base mt-1 md:mt-0"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Settings
                   </div>
                   <div
-                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs md:text-sm lg:text-base mt-1 md:mt-0"
+                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs sm:text-sm md:text-base mt-1 md:mt-0"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Logout
@@ -239,23 +242,23 @@ export default function Voice() {
         >
           <button
             onClick={toggleSidebar}
-            className="hidden md:flex absolute -right-3 top-4 bg-white rounded-full p-0.5 shadow-md hover:bg-gray-50 active:bg-gray-100"
+            className="hidden md:flex absolute -right-3 top-4 bg-white rounded-full p-0.5 shadow-md"
           >
             {isSidebarOpen ? (
               <IoIosArrowDropleftCircle
                 size={24}
-                className="text-black hover:text-purple-700 active:text-purple-800"
+                className="text-black hover:text-purple-700"
               />
             ) : (
               <IoIosArrowDroprightCircle
                 size={24}
-                className="text-black hover:text-purple-700 active:text-purple-800"
+                className="text-black hover:text-purple-700"
               />
             )}
           </button>
           <nav className="p-4 space-y-4">
             <div
-              className="flex items-center text-purple-700 font-semibold cursor-pointer pt-2 text-xs md:text-sm lg:text-base hover:text-purple-800 active:text-purple-900"
+              className="flex items-center text-purple-700 font-semibold cursor-pointer pt-2 text-xs sm:text-sm md:text-base"
               onClick={handleDashboard}
             >
               <PiChartPieSliceFill size={16} className="mr-3" />
@@ -264,21 +267,21 @@ export default function Voice() {
               </span>
             </div>
             <div
-              className="flex items-center text-black hover:text-purple-700 active:text-purple-800 cursor-pointer py-2 text-xs md:text-sm lg:text-base"
-              onClick={handleVoice}
+              className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs sm:text-sm md:text-base"
+              onClick={handleAgentCustomization}
             >
               <ImUsers size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
                 Agent Customization
               </span>
             </div>
-            <div className="flex items-center text-black hover:text-purple-700 active:text-purple-800 cursor-pointer pb-2 text-xs md:text-sm lg:text-base">
+            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer pb-2 text-xs sm:text-sm md:text-base">
               <FaPhoneAlt size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
                 Call Logs
               </span>
             </div>
-            <div className="flex items-center text-black hover:text-purple-700 active:text-purple-800 cursor-pointer text-xs md:text-sm lg:text-base">
+            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer text-xs sm:text-sm md:text-base">
               <PiUserList size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
                 Account Settings
@@ -286,13 +289,13 @@ export default function Voice() {
             </div>
           </nav>
           <div className="px-4 mb-24 md:mb-[70px] space-y-2">
-            <div className="flex items-center text-black hover:text-purple-700 active:text-purple-800 cursor-pointer py-2 text-xs md:text-sm lg:text-base">
+            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs sm:text-sm md:text-base">
               <LuSquareArrowOutUpRight size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
                 Updates & FAQ
               </span>
             </div>
-            <div className="flex items-center text-black hover:text-purple-700 active:text-purple-800 cursor-pointer py-2 text-xs md:text-sm lg:text-base">
+            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs sm:text-sm md:text-base">
               <RxExit size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
                 Log out
@@ -306,12 +309,12 @@ export default function Voice() {
           <div className="flex flex-col lg:flex-row gap-4 md:gap-6">
             {/* Left side - Full width on mobile, 20% on desktop */}
             <div className="w-full lg:w-1/5 bg-white rounded-xl p-4">
-              <button className="w-full bg-purple-700 text-white px-4 py-2 rounded-md 
-              flex items-center justify-center gap-2 mb-6 hover:bg-purple-800 active:bg-purple-900"
-              onClick={handleDashboard}
+              <button
+                className="w-full bg-purple-700 text-white px-4 py-2 rounded-md flex items-center justify-center gap-2 mb-6 hover:bg-purple-800 active:bg-purple-900"
+                onClick={handleDashboard}
               >
                 <FaPlus size={14} />
-                <span className="text-xs md:text-sm lg:text-base">
+                <span className="text-xs sm:text-sm md:text-base">
                   Create New Agent
                 </span>
               </button>
@@ -322,7 +325,7 @@ export default function Voice() {
                     {[1, 2, 3, 4, 5].map((num) => (
                       <div
                         key={num}
-                        className="text-xs md:text-sm lg:text-base font-medium flex items-center mb-6"
+                        className="text-xs sm:text-sm md:text-base font-medium flex items-center mb-6"
                       >
                         <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
                           <AiOutlineUser
@@ -333,7 +336,13 @@ export default function Voice() {
                         <span className="ml-3">AI Assistant {num}</span>
                         <label className="relative inline-flex items-center cursor-pointer ml-auto">
                           <input type="checkbox" className="sr-only peer" />
-                          <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:bg-purple-600 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-full relative" />
+                          <div
+                            className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full
+                           peer-checked:after:border-white after:content-[''] 
+                           after:absolute after:top-[2px] after:left-[2px] after:bg-white
+                            after:border-gray-300 after:border after:rounded-full after:h-4 
+                            after:w-4 after:transition-all peer-checked:bg-purple-700"
+                          ></div>
                         </label>
                       </div>
                     ))}
@@ -352,7 +361,7 @@ export default function Voice() {
                       setActiveTab("create");
                       handleCreateAgent();
                     }}
-                    className={`px-3 md:px-4 py-2 cursor-pointer sm:rounded-l-md whitespace-nowrap text-sm ${"bg-gray-200 text-gray-700 hover:bg-gray-300 active:bg-gray-400"}`}
+                    className={`px-3 md:px-4 py-2 cursor-pointer sm:rounded-l-md whitespace-nowrap text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] ${"bg-gray-200 text-gray-700 hover:bg-gray-300 active:bg-gray-400"}`}
                   >
                     Agent
                   </span>
@@ -361,7 +370,7 @@ export default function Voice() {
                       setActiveTab("voice");
                       handleVoice();
                     }}
-                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-sm bg-purple-700 text-white`}
+                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] bg-purple-700 text-white`}
                   >
                     Voice
                   </span>
@@ -370,7 +379,7 @@ export default function Voice() {
                       setActiveTab("analysis");
                       handleAnalysis();
                     }}
-                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-sm ${
+                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] ${
                       activeTab === "analysis"
                         ? "bg-purple-700 text-white"
                         : "bg-gray-200 text-gray-700 hover:bg-gray-300 active:bg-gray-400"
@@ -383,7 +392,7 @@ export default function Voice() {
                       setActiveTab("security");
                       handleSecurity();
                     }}
-                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-sm ${
+                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] ${
                       activeTab === "security"
                         ? "bg-purple-700 text-white"
                         : "bg-gray-200 text-gray-700 hover:bg-gray-300 active:bg-gray-400"
@@ -396,7 +405,7 @@ export default function Voice() {
                       setActiveTab("advanced");
                       handleAdvanced();
                     }}
-                    className={`px-3 md:px-4 py-2 cursor-pointer sm:rounded-r-md whitespace-nowrap text-sm ${
+                    className={`px-3 md:px-4 py-2 cursor-pointer sm:rounded-r-md whitespace-nowrap text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] ${
                       activeTab === "advanced"
                         ? "bg-purple-700 text-white"
                         : "bg-gray-200 text-gray-700 hover:bg-gray-300 active:bg-gray-400"
@@ -408,10 +417,10 @@ export default function Voice() {
 
                 {/* Action buttons - Full width on mobile, auto width on tablet/desktop */}
                 <div className="flex gap-2 w-full sm:w-auto">
-                  <button className="flex-1 sm:flex-none border border-black text-black px-4 py-2 rounded-md text-sm hover:bg-gray-100 active:bg-gray-200 transition-colors min-w-[80px]">
+                  <button className="flex-1 sm:flex-none border border-black text-black px-4 py-2 rounded-md text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] hover:bg-gray-100 active:bg-gray-200 transition-colors min-w-[80px]">
                     Clear
                   </button>
-                  <button className="flex-1 sm:flex-none bg-purple-700 text-white px-4 py-2 rounded-md text-sm hover:bg-purple-800 active:bg-purple-900 transition-colors min-w-[80px]">
+                  <button className="flex-1 sm:flex-none bg-purple-700 text-white px-4 py-2 rounded-md text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] hover:bg-purple-800 active:bg-purple-900 transition-colors min-w-[80px]">
                     Save
                   </button>
                 </div>
@@ -419,7 +428,7 @@ export default function Voice() {
 
               <div className="space-y-6 mt-6 mb-24">
                 <div className="flex justify-between items-center">
-                  <h2 className="text-base md:text-lg font-semibold">
+                  <h2 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold">
                     Voice Settings
                   </h2>
                 </div>
@@ -434,35 +443,30 @@ export default function Voice() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                       {/* Use Flash */}
                       <div>
-                        <label className="block font-bold text-xs md:text-sm text-[#333333DE] leading-[17px] font-inter mb-1">
+                        <label className="block font-semibold text-xs sm:text-sm md:text-base text-[#333333DE] leading-[17px] font-inter mb-1">
                           Use Flash
                         </label>
                         <div className="border rounded-md p-3 md:p-4 flex justify-between items-center">
                           <div>
-                            <p className="text-gray-600 text-xs md:text-sm">
-                              Enable flash for better performance
+                            <p className="text-gray-600 text-xs sm:text-sm md:text-base">
+                            Flash is our new recommended model for low latency use cases. For more comparison between Turbo and Flash, refer here.
                             </p>
                           </div>
-                          <label className="inline-flex items-center cursor-pointer">
-                            <input
-                              type="checkbox"
-                              className="sr-only peer"
-                              checked={useFlash}
-                              onChange={() => setUseFlash(!useFlash)}
-                            />
-                            <div className="w-11 h-6 bg-gray-300 rounded-full peer peer-checked:bg-purple-600 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full relative" />
-                          </label>
+                          <label className="relative inline-flex items-center cursor-pointer ml-auto">
+                          <input type="checkbox" className="sr-only peer" />
+                          <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:bg-purple-600 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-full relative" />
+                        </label>
                         </div>
                       </div>
 
                       {/* TTS Output Format */}
                       <div>
-                        <label className="block font-bold text-xs md:text-sm text-[#333333DE] leading-[17px] font-inter mb-3">
+                        <label className="block font-semibold text-xs sm:text-sm md:text-base text-[#333333DE] leading-[17px] font-inter mb-3">
                           TTS Output Format
                         </label>
                         <div className="border rounded-md p-3 md:p-4">
                           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
-                            <p className="text-gray-600 text-xs md:text-sm">
+                            <p className="text-gray-600 text-xs sm:text-sm md:text-base">
                               Select output format
                             </p>
                             <div className="w-full sm:w-48">
@@ -476,18 +480,18 @@ export default function Voice() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                       <div>
                         <div className="flex flex-col space-y-2">
-                          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3">
                           <div>
-                          <label className="block font-bold text-xs md:text-sm text-[#333333DE] leading-[17px] font-inter">
+                          <label className="block font-bold text-xs sm:text-sm md:text-base text-[#333333DE] leading-[17px] font-inter">
                             Pronunciation Dictionary
                           </label>
                           </div>
                           
-                          <div className="flex flex-wrap gap-2 items-center">
-                            <span className="bg-[#3C3C3C] text-white px-2 py-1 rounded-md text-xs">.pls</span>
-                            <span className="bg-[#3C3C3C] text-white px-2 py-1 rounded-md text-xs">.txt</span>
-                            <span className="bg-[#3C3C3C] text-white px-2 py-1 rounded-md text-xs">.xml</span>
-                            <span className="text-xs text-gray-500">Max 1.6 MB</span>
+                          <div className="flex flex-wrap gap-2 items-center my-3">
+                            <span className="bg-[#3C3C3C] text-white px-2 py-1 rounded-md text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px]">.pls</span>
+                            <span className="bg-[#3C3C3C] text-white px-2 py-1 rounded-md text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px]">.txt</span>
+                            <span className="bg-[#3C3C3C] text-white px-2 py-1 rounded-md text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px]">.xml</span>
+                            <span className="font-semibold text-xs sm:text-sm md:text-base text-gray-500">Max 1.6 MB</span>
                           </div>
 
                           </div>
@@ -495,27 +499,27 @@ export default function Voice() {
                         </div>
                         <div className="border border-gray-200 rounded-md p-3 md:p-4">
                           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
-                            <p className="text-xs text-gray-500">
+                            <p className="text-gray-600 text-xs sm:text-sm md:text-base">
                               Add custom pronunciations for specific words
                             </p>
                             <button className="w-full sm:w-auto px-4 py-2 bg-black text-white rounded-md
-                            text-xs md:text-sm">
+                            text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px]">
                               Add Document
                             </button>
                           </div>
                         </div>
                       </div>
                       <div>
-                        <label className="block font-bold text-xs md:text-sm text-[#333333DE] leading-[17px] font-inter mb-3">
+                        <label className="block font-semibold text-xs sm:text-sm md:text-base text-[#333333DE] leading-[17px] font-inter pt-3 mb-3">
                           Optimize Streaming Latency
                         </label>
                         <div className="border border-gray-200 rounded-md p-3 md:p-4">
-                          <p className="text-xs text-gray-500 mb-2">
+                          <p className="text-gray-600 text-xs sm:text-sm md:text-base mb-2">
                             Adjust streaming latency for optimal performance
                           </p>
                           <input
                             type="range"
-                            className="w-full accent-black"
+                            className="w-full accent-black my-2"
                             min="0"
                             max="100"
                             defaultValue="50"
@@ -527,11 +531,11 @@ export default function Voice() {
                     {/* Stability and Speed */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                       <div>
-                        <label className="block font-bold text-xs md:text-sm text-[#333333DE] leading-[17px] font-inter mb-3">
+                        <label className="block font-semibold text-xs sm:text-sm md:text-base text-[#333333DE] leading-[17px] font-inter mb-3">
                           Stability
                         </label>
                         <div className="border border-gray-200 rounded-md p-3 md:p-4">
-                          <p className="text-xs text-gray-500 mb-2">
+                          <p className="text-gray-600 text-xs sm:text-sm md:text-base">
                             Stability controls how much the voice output varies
                             between different generations.
                           </p>
@@ -541,16 +545,16 @@ export default function Voice() {
                             max="100"
                             value={stability}
                             onChange={(e) => setStability(e.target.value)}
-                            className="w-full accent-black"
+                            className="w-full accent-black my-2"
                           />
                         </div>
                       </div>
                       <div>
-                        <label className="block font-bold text-xs md:text-sm text-[#333333DE] leading-[17px] font-inter mb-3">
+                        <label className="block font-semibold text-xs sm:text-sm md:text-base text-[#333333DE] leading-[17px] font-inter mb-3">
                           Speed
                         </label>
                         <div className="border border-gray-200 rounded-md p-3 md:p-4">
-                          <p className="text-xs text-gray-500 mb-2">
+                          <p className="text-gray-600 text-xs sm:text-sm md:text-base">
                             Speed determines how fast or slow the voice speaks
                             the generated text.
                           </p>
@@ -560,7 +564,7 @@ export default function Voice() {
                             max="100"
                             value={speed}
                             onChange={(e) => setSpeed(e.target.value)}
-                            className="w-full accent-black"
+                            className="w-full accent-black my-2"
                           />
                         </div>
                       </div>
@@ -574,13 +578,10 @@ export default function Voice() {
       </div>
 
       {/* Footer */}
-      <footer
-        className="fixed bottom-0 left-0 right-0 min-h-[40px] md:h-10 flex flex-col md:flex-row items-center justify-between 
-      px-4 md:px-6 py-2 md:py-8 text-xs md:text-sm lg:text-base border bg-white z-50"
-      >
+      <footer className="fixed bottom-0 left-0 right-0 min-h-[40px] md:h-10 flex flex-col md:flex-row items-center justify-between px-4 md:px-6 py-2 md:py-8 text-xs sm:text-sm md:text-base border bg-white z-50">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4 text-gray-500">
-          <div className="text-gray-500">BerryDial</div>
-          <div className="flex gap-4 text-gray-500 ml-4 sm:ml-8">
+          <div>BerryDial</div>
+          <div className="flex gap-4 ml-4 sm:ml-8">
             <a href="#" className="hover:text-purple-700">
               Term of use
             </a>
