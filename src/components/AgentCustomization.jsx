@@ -780,17 +780,16 @@ export default function AgentCustomization() {
                           Base during answer generation.
                         </p>
                         <div className="flex items-center justify-end w-full sm:w-auto">
-                          <label className="inline-flex items-center cursor-pointer sm:ml-4 my-1 sm:my-3">
-                            <input
-                              type="checkbox"
-                              className="sr-only peer"
-                              checked={useRag}
-                              onChange={() => setUseRag(!useRag)}
-                            />
-                            <div className="relative w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:bg-purple-600">
-                              <div className="absolute top-[2px] left-[2px] bg-white border rounded-full h-5 w-5 transition-all peer-checked:translate-x-full"></div>
-                            </div>
-                          </label>
+                        <label className="relative inline-flex items-center cursor-pointer ml-auto">
+                          <input type="checkbox" className="sr-only peer" />
+                          <div
+                            className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full
+                           peer-checked:after:border-white after:content-[''] 
+                           after:absolute after:top-[2px] after:left-[2px] after:bg-white
+                            after:border-gray-300 after:border after:rounded-full after:h-4 
+                            after:w-4 after:transition-all peer-checked:bg-purple-700"
+                          ></div>
+                        </label>
                         </div>
                       </div>
                     </div>
