@@ -275,7 +275,7 @@ const Dashboard = () => {
                   <label className="block text-xs md:text-sm lg:text-base font-medium mb-1">Agent Name</label>
                   <input 
                     type="text"
-                    className={`w-full border ${formErrors.agentName ? 'border-red-500' : 'border-gray-300'} rounded-md p-2 text-xs md:text-sm lg:text-base focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none`}
+                    className={`w-full border ${formErrors.agentName ? 'border-red-500' : 'border-gray-300'} rounded-md p-2 text-xs md:text-sm lg:text-base outline-none`}
                     placeholder="Enter Name"
                     value={formData.agentName}
                     onChange={(e) => handleInputChange('agentName', e.target.value)}
@@ -288,7 +288,7 @@ const Dashboard = () => {
                 <div className="relative">
                   <label className="block text-xs md:text-sm lg:text-base font-medium mb-1">Language</label>
                   <select 
-                    className={`w-full border ${formErrors.language ? 'border-red-500' : 'border-gray-300'} rounded-md p-2 text-xs md:text-sm lg:text-base focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none appearance-none bg-white`}
+                    className={`w-full border ${formErrors.language ? 'border-red-500' : 'border-gray-300'} rounded-md p-2 text-xs md:text-sm lg:text-base outline-none appearance-none bg-white`}
                     value={formData.language}
                     onChange={(e) => handleInputChange('language', e.target.value)}
                   >
@@ -307,7 +307,7 @@ const Dashboard = () => {
                 <label className="block text-xs md:text-sm lg:text-base font-medium mb-1">Description</label>
                 <input 
                   type="text"
-                  className={`w-full border ${formErrors.description ? 'border-red-500' : 'border-gray-300'} rounded-md p-2 text-xs md:text-sm lg:text-base focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none`}
+                  className={`w-full border ${formErrors.description ? 'border-red-500' : 'border-gray-300'} rounded-md p-2 text-xs md:text-sm lg:text-base outline-none`}
                   placeholder="Agent Description"
                   value={formData.description}
                   onChange={(e) => handleInputChange('description', e.target.value)}
@@ -321,7 +321,7 @@ const Dashboard = () => {
                 <div className="relative">
                   <label className="block text-xs md:text-sm lg:text-base font-medium mb-1">Characteristics</label>
                   <select 
-                    className={`w-full border ${formErrors.characteristics ? 'border-red-500' : 'border-gray-300'} rounded-md p-2 text-xs md:text-sm lg:text-base focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none appearance-none bg-white`}
+                    className={`w-full border ${formErrors.characteristics ? 'border-red-500' : 'border-gray-300'} rounded-md p-2 text-xs md:text-sm lg:text-base outline-none appearance-none bg-white`}
                     value={formData.characteristics}
                     onChange={(e) => handleInputChange('characteristics', e.target.value)}
                   >
@@ -338,7 +338,7 @@ const Dashboard = () => {
                 <div className="relative">
                   <label className="block text-xs md:text-sm lg:text-base font-medium mb-1">Voice</label>
                   <select 
-                    className={`w-full border ${formErrors.voice ? 'border-red-500' : 'border-gray-300'} rounded-md p-2 text-xs md:text-sm lg:text-base focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none appearance-none bg-white`}
+                    className={`w-full border ${formErrors.voice ? 'border-red-500' : 'border-gray-300'} rounded-md p-2 text-xs md:text-sm lg:text-base outline-none appearance-none bg-white`}
                     value={formData.voice}
                     onChange={(e) => handleInputChange('voice', e.target.value)}
                   >
@@ -354,7 +354,7 @@ const Dashboard = () => {
                 <div className="relative">
                   <label className="block text-xs md:text-sm lg:text-base font-medium mb-1">Timezone</label>
                   <select 
-                    className={`w-full border ${formErrors.timezone ? 'border-red-500' : 'border-gray-300'} rounded-md p-2 text-xs md:text-sm lg:text-base focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none appearance-none bg-white`}
+                    className={`w-full border ${formErrors.timezone ? 'border-red-500' : 'border-gray-300'} rounded-md p-2 text-xs md:text-sm lg:text-base outline-none appearance-none bg-white`}
                     value={formData.timezone}
                     onChange={(e) => handleInputChange('timezone', e.target.value)}
                   >
