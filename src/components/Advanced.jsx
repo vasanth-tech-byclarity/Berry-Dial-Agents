@@ -153,6 +153,7 @@ export default function Advanced() {
   const handleSecurity = () => navigate("/security");
   const handleCreateAgent = () => navigate("/agent-customization");
   const handleDashboard = () => navigate("/dashboard");
+  const handleAdvanced = () => navigate("/advanced");
 
   React.useEffect(() => {
     const handleResize = () => {
