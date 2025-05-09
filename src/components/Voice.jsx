@@ -42,7 +42,7 @@ const VoiceDropdown = () => {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative w-full border text-black my-2 px-4 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none focus:ring-2 focus:ring-purple-500 hover:bg-gray-50 active:bg-gray-100"
+        className="relative w-full border text-black my-2 px-4 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none text-xs sm:text-sm"
       >
         {selectedVoice.name}
         <div className="absolute right-2 top-1/2 -translate-y-1/2">
@@ -88,7 +88,7 @@ const FormatDropdown = () => {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative w-full border text-black px-4 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none focus:ring-2 focus:ring-purple-500 hover:bg-gray-50 active:bg-gray-100"
+        className="relative w-full border text-black px-4 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none hover:bg-gray-50 active:bg-gray-100"
       >
         {selectedFormat}
         <div className="absolute right-2 top-1/2 -translate-y-1/2">
@@ -335,7 +335,7 @@ export default function Voice() {
                         <label className="relative inline-flex items-center cursor-pointer ml-auto">
                           <input type="checkbox" className="sr-only peer" />
                           <div
-                            className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-purple-500 rounded-full peer peer-checked:after:translate-x-full
+                            className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full
                            peer-checked:after:border-white after:content-[''] 
                            after:absolute after:top-[2px] after:left-[2px] after:bg-white
                             after:border-gray-300 after:border after:rounded-full after:h-4 

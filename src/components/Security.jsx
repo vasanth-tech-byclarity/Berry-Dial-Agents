@@ -260,7 +260,7 @@ export default function Security() {
                         <label className="relative inline-flex items-center cursor-pointer ml-auto">
                           <input type="checkbox" className="sr-only peer" />
                           <div
-                            className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-purple-500 rounded-full peer peer-checked:after:translate-x-full
+                            className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full
                            peer-checked:after:border-white after:content-[''] 
                            after:absolute after:top-[2px] after:left-[2px] after:bg-white
                             after:border-gray-300 after:border after:rounded-full after:h-4 
@@ -374,7 +374,7 @@ export default function Security() {
                       Allowlist
                     </h3>
                     <button className="w-full sm:w-auto text-xs sm:text-sm md:text-base lg:text-lg bg-black text-white px-4 py-2 rounded-md
-                       transition-colors whitespace-nowrap hover:bg-gray-800">
+                       transition-colors whitespace-nowrap">
                       Add host
                     </button>
                   </div>

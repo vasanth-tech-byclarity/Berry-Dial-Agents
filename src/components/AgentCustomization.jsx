@@ -58,7 +58,7 @@ const AgentLanguageDropdown = () => {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="sm:my-6 relative w-full border text-black pl-10 pr-8 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none focus:ring-2 focus:ring-purple-500 text-xs sm:text-sm md:text-base"
+        className="sm:my-6 relative w-full border text-black pl-10 pr-8 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none text-xs sm:text-sm md:text-base"
       >
         <div className="absolute left-2 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full overflow-hidden border border-gray-200 bg-gray-50">
           <img
@@ -164,7 +164,8 @@ const AdditionalLanguageDropdown = () => {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="sm:my-6 relative w-full border text-black pl-10 pr-8 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none focus:ring-2 focus:ring-purple-500 text-xs sm:text-sm md:text-base 
+        className="sm:my-6 relative w-full border text-black pl-10 pr-8 py-2 rounded-md border-gray-300 bg-white text-left 
+        focus:outline-none text-xs sm:text-sm md:text-base 
        "
       >
         <div className="absolute left-2 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full overflow-hidden border border-gray-200 bg-gray-50">
@@ -244,7 +245,7 @@ const CharacteristicsDropdown = () => {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="sm:my-6 relative w-full border text-black px-4 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none focus:ring-2 focus:ring-purple-500 text-xs sm:text-sm md:text-base"
+        className="sm:my-6 relative w-full border text-black px-4 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none text-xs sm:text-sm md:text-base"
       >
         {selectedCharacteristic.name}
         <div className="absolute right-2 top-1/2 -translate-y-1/2">
@@ -508,7 +509,7 @@ export default function AgentCustomization() {
                         <label className="relative inline-flex items-center cursor-pointer ml-auto">
                           <input type="checkbox" className="sr-only peer" />
                           <div
-                            className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-purple-500 rounded-full peer peer-checked:after:translate-x-full
+                            className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full
                            peer-checked:after:border-white after:content-[''] 
                            after:absolute after:top-[2px] after:left-[2px] after:bg-white
                             after:border-gray-300 after:border after:rounded-full after:h-4 
@@ -639,7 +640,7 @@ export default function AgentCustomization() {
                           the agent and the context of the conversation
                         </p>
                         <textarea
-                          className="text-xs sm:text-sm border border-gray-300 rounded-md w-full p-2 text-black h-[104px] resize-none focus:outline-none focus:ring-2 focus:ring-purple-500"
+                          className="text-xs sm:text-sm border border-gray-300 rounded-md w-full p-2 text-black h-[104px] resize-none focus:outline-none"
                           defaultValue="You are a support agent named Eric. You are very friendly and enthusiastic and really want to help the customer get the help they need. Answer in 3 to 7 sentences in most cases."
                         ></textarea>
                       </div>
@@ -655,7 +656,9 @@ export default function AgentCustomization() {
                           <div className="flex flex-col sm:flex-row gap-2 w-full">
                             
                             <p className="text-xs sm:text-sm md:text-base">Hi, I'm Eric. How can I help you today?</p>
-                            <button className="bg-black text-white px-2 sm:px-3 py-1 sm:py-2 rounded-md whitespace-nowrap text-xs sm:text-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                            <button className="bg-black text-white px-2 sm:px-3 md:px-4 py-1.5 sm:py-1.5 md:py-2 rounded-md 
+                            whitespace-nowrap text-xs sm:text-sm md:text-basetransition-colors duration-200 ease-in-out 
+                            focus:outline-none">
                               + Add Variable
                             </button>
                           </div>
@@ -736,7 +739,7 @@ export default function AgentCustomization() {
 
                           <input
                             type="text"
-                            className="border border-gray-300 rounded-md w-full sm:w-24 p-2 text-black focus:outline-none focus:ring-2 focus:ring-purple-500 text-xs sm:text-sm"
+                            className="border border-gray-300 rounded-md w-full sm:w-24 p-2 text-black focus:outline-none text-xs sm:text-sm"
                             defaultValue="-1"
                           />
                         </div>
@@ -755,7 +758,8 @@ export default function AgentCustomization() {
                               Provide the LLM with domain-specific information
                               to help it answer questions more accurately.
                             </p>
-                            <button className="bg-black text-white px-4 py-2 rounded-md text-xs sm:text-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 w-full sm:w-auto">
+                            <button className="bg-black text-white px-4 py-2 rounded-md text-xs sm:text-sm
+                              focus:outline-none  w-full sm:w-auto">
                               Add document
                             </button>
                           </div>
@@ -783,7 +787,7 @@ export default function AgentCustomization() {
                               checked={useRag}
                               onChange={() => setUseRag(!useRag)}
                             />
-                            <div className="relative w-11 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-purple-500 rounded-full peer peer-checked:bg-purple-600">
+                            <div className="relative w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:bg-purple-600">
                               <div className="absolute top-[2px] left-[2px] bg-white border rounded-full h-5 w-5 transition-all peer-checked:translate-x-full"></div>
                             </div>
                           </label>
@@ -860,7 +864,8 @@ export default function AgentCustomization() {
                               Create and manage secure secrets that can be
                               accessed across your workspace
                             </p>
-                            <button className="bg-black text-white px-5 py-2 rounded-md text-xs sm:text-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 w-full sm:w-auto">
+                            <button className="bg-black text-white px-5 py-2 rounded-md text-xs sm:text-sm 
+                             w-full sm:w-auto">
                               Add Secret
                             </button>
                           </div>

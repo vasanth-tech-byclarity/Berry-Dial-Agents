@@ -36,7 +36,7 @@ const FormatDropdown = () => {
         <div className="relative w-full">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="relative w-full border text-black px-4 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none focus:ring-2 focus:ring-purple-500 hover:bg-gray-50 active:bg-gray-100"
+            className="relative w-full border text-black px-4 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-nonehover:bg-gray-50 active:bg-gray-100"
           >
             <span className="block truncate pr-8 text-xs sm:text-sm md:text-base">{selectedFormat}</span>
             <div className="absolute right-2 top-1/2 -translate-y-1/2">
@@ -93,7 +93,7 @@ const CharacteristicsDropdown = () => {
     <div className="relative w-full">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative w-full border text-black px-4 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none focus:ring-2 focus:ring-purple-500"
+        className="relative w-full border text-black px-4 py-2 rounded-md border-gray-300 bg-white text-left focus:outline-none"
       >
         <span className="block truncate text-xs sm:text-sm md:text-base">{selectedCharacteristic.name}</span>
         <div className="absolute right-2 top-1/2 -translate-y-1/2">
@@ -346,7 +346,7 @@ export default function Advanced() {
                         <label className="relative inline-flex items-center cursor-pointer ml-auto">
                           <input type="checkbox" className="sr-only peer" />
                           <div
-                            className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-purple-500 rounded-full peer peer-checked:after:translate-x-full
+                            className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full
                            peer-checked:after:border-white after:content-[''] 
                            after:absolute after:top-[2px] after:left-[2px] after:bg-white
                             after:border-gray-300 after:border after:rounded-full after:h-4 
@@ -435,7 +435,7 @@ export default function Advanced() {
                     <input
                       type="number"
                       defaultValue={7}
-                      className="border px-3 py-1 w-full rounded text-xs sm:text-sm md:text-base"
+                      className="border px-3 py-1 w-full rounded text-xs sm:text-sm md:text-base focus:outline-none"
                     />
                   }
                 />
@@ -450,7 +450,7 @@ export default function Advanced() {
                     <input
                       type="number"
                       defaultValue={300}
-                      className="border px-3 py-1 w-full rounded text-xs sm:text-sm md:text-base"
+                      className="border px-3 py-1 w-full rounded text-xs sm:text-sm md:text-base focus:outline-none"
                     />
                   </div>
                 </div>
@@ -519,7 +519,7 @@ export default function Advanced() {
                     <input
                       type="number"
                       defaultValue={730}
-                      className="border px-3 py-1 w-full rounded text-xs sm:text-sm md:text-base"
+                      className="border px-3 py-1 w-full rounded text-xs sm:text-sm md:text-base focus:outline-none"
                     />
                   }
                 />
