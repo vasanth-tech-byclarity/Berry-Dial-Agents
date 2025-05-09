@@ -258,8 +258,8 @@ export default function Voice() {
           </button>
           <nav className="p-4 space-y-4">
             <div
-              className="flex items-center text-purple-700 font-semibold cursor-pointer pt-2 text-xs sm:text-sm md:text-base"
-              onClick={handleDashboard}
+              className="flex items-center text-black hover:text-purple-700 cursor-pointer pt-2 text-xs md:text-sm lg:text-base"
+              onClick={handleCreateAgent}
             >
               <PiChartPieSliceFill size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
@@ -267,7 +267,7 @@ export default function Voice() {
               </span>
             </div>
             <div
-              className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs sm:text-sm md:text-base"
+              className="flex items-center text-purple-700 font-semibold cursor-pointer py-2 text-xs md:text-sm lg:text-base"
               onClick={handleAgentCustomization}
             >
               <ImUsers size={16} className="mr-3" />
@@ -275,13 +275,13 @@ export default function Voice() {
                 Agent Customization
               </span>
             </div>
-            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer pb-2 text-xs sm:text-sm md:text-base">
+            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer pb-2 text-xs md:text-sm lg:text-base">
               <FaPhoneAlt size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
                 Call Logs
               </span>
             </div>
-            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer text-xs sm:text-sm md:text-base">
+            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer text-xs md:text-sm lg:text-base">
               <PiUserList size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
                 Account Settings
@@ -289,13 +289,13 @@ export default function Voice() {
             </div>
           </nav>
           <div className="px-4 mb-24 md:mb-[70px] space-y-2">
-            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs sm:text-sm md:text-base">
+            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs md:text-sm lg:text-base">
               <LuSquareArrowOutUpRight size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
                 Updates & FAQ
               </span>
             </div>
-            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs sm:text-sm md:text-base">
+            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs md:text-sm lg:text-base">
               <RxExit size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
                 Log out
@@ -309,14 +309,12 @@ export default function Voice() {
           <div className="flex flex-col lg:flex-row gap-4 md:gap-6">
             {/* Left side - Full width on mobile, 20% on desktop */}
             <div className="w-full lg:w-1/5 bg-white rounded-xl p-4">
-              <button
-                className="w-full bg-purple-700 text-white px-4 py-2 rounded-md flex items-center justify-center gap-2 mb-6 hover:bg-purple-800 active:bg-purple-900"
-                onClick={handleDashboard}
+              <button className="w-full bg-purple-700 text-white px-4 py-2 rounded-md 
+              flex items-center justify-center gap-2 mb-6 text-sm md:text-base hover:bg-purple-800 transition-colors"
+              onClick={handleDashboard}
               >
                 <FaPlus size={14} />
-                <span className="text-xs sm:text-sm md:text-base">
-                  Create New Agent
-                </span>
+                <span>Create New Agent</span>
               </button>
 
               <div className="space-y-4">
@@ -325,7 +323,7 @@ export default function Voice() {
                     {[1, 2, 3, 4, 5].map((num) => (
                       <div
                         key={num}
-                        className="text-xs sm:text-sm md:text-base font-medium flex items-center mb-6"
+                        className="text-sm md:text-base font-medium flex items-center mb-6"
                       >
                         <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
                           <AiOutlineUser
@@ -337,7 +335,7 @@ export default function Voice() {
                         <label className="relative inline-flex items-center cursor-pointer ml-auto">
                           <input type="checkbox" className="sr-only peer" />
                           <div
-                            className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full
+                            className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-purple-500 rounded-full peer peer-checked:after:translate-x-full
                            peer-checked:after:border-white after:content-[''] 
                            after:absolute after:top-[2px] after:left-[2px] after:bg-white
                             after:border-gray-300 after:border after:rounded-full after:h-4 
@@ -359,9 +357,9 @@ export default function Voice() {
                   <span
                     onClick={() => {
                       setActiveTab("create");
-                      handleCreateAgent();
+                      handleAgentCustomization();
                     }}
-                    className={`px-3 md:px-4 py-2 cursor-pointer sm:rounded-l-md whitespace-nowrap text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] ${"bg-gray-200 text-gray-700 hover:bg-gray-300 active:bg-gray-400"}`}
+                    className={`px-3 md:px-4 py-2 cursor-pointer sm:rounded-l-md whitespace-nowrap text-sm bg-gray-200 text-gray-700 hover:bg-gray-300`}
                   >
                     Agent
                   </span>
@@ -370,7 +368,7 @@ export default function Voice() {
                       setActiveTab("voice");
                       handleVoice();
                     }}
-                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] bg-purple-700 text-white`}
+                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-sm bg-purple-700 text-white`}
                   >
                     Voice
                   </span>
@@ -379,11 +377,7 @@ export default function Voice() {
                       setActiveTab("analysis");
                       handleAnalysis();
                     }}
-                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] ${
-                      activeTab === "analysis"
-                        ? "bg-purple-700 text-white"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300 active:bg-gray-400"
-                    }`}
+                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-sm bg-gray-200 text-gray-700 hover:bg-gray-300`}
                   >
                     Analysis
                   </span>
@@ -392,11 +386,7 @@ export default function Voice() {
                       setActiveTab("security");
                       handleSecurity();
                     }}
-                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] ${
-                      activeTab === "security"
-                        ? "bg-purple-700 text-white"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300 active:bg-gray-400"
-                    }`}
+                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-sm bg-gray-200 text-gray-700 hover:bg-gray-300`}
                   >
                     Security
                   </span>
@@ -405,11 +395,7 @@ export default function Voice() {
                       setActiveTab("advanced");
                       handleAdvanced();
                     }}
-                    className={`px-3 md:px-4 py-2 cursor-pointer sm:rounded-r-md whitespace-nowrap text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] ${
-                      activeTab === "advanced"
-                        ? "bg-purple-700 text-white"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300 active:bg-gray-400"
-                    }`}
+                    className={`px-3 md:px-4 py-2 cursor-pointer sm:rounded-r-md whitespace-nowrap text-sm bg-gray-200 text-gray-700 hover:bg-gray-300`}
                   >
                     Advanced
                   </span>
@@ -417,10 +403,10 @@ export default function Voice() {
 
                 {/* Action buttons - Full width on mobile, auto width on tablet/desktop */}
                 <div className="flex gap-2 w-full sm:w-auto">
-                  <button className="flex-1 sm:flex-none border border-black text-black px-4 py-2 rounded-md text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] hover:bg-gray-100 active:bg-gray-200 transition-colors min-w-[80px]">
+                  <button className="flex-1 sm:flex-none border border-black text-black px-4 py-2 rounded-md text-sm hover:bg-gray-100 transition-colors min-w-[80px]">
                     Clear
                   </button>
-                  <button className="flex-1 sm:flex-none bg-purple-700 text-white px-4 py-2 rounded-md text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] hover:bg-purple-800 active:bg-purple-900 transition-colors min-w-[80px]">
+                  <button className="flex-1 sm:flex-none bg-purple-700 text-white px-4 py-2 rounded-md text-sm hover:bg-purple-800 transition-colors min-w-[80px]">
                     Save
                   </button>
                 </div>

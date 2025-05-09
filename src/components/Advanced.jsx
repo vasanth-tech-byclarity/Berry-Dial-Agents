@@ -268,8 +268,8 @@ export default function Advanced() {
           </button>
           <nav className="p-4 space-y-4">
             <div
-              className="flex items-center text-purple-700 font-semibold cursor-pointer pt-2 text-xs sm:text-sm md:text-base"
-              onClick={handleDashboard}
+              className="flex items-center text-black hover:text-purple-700 cursor-pointer pt-2 text-xs md:text-sm lg:text-base"
+              onClick={handleCreateAgent}
             >
               <PiChartPieSliceFill size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
@@ -277,7 +277,7 @@ export default function Advanced() {
               </span>
             </div>
             <div
-              className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs sm:text-sm md:text-base"
+              className="flex items-center text-purple-700 font-semibold cursor-pointer py-2 text-xs md:text-sm lg:text-base"
               onClick={handleAgentCustomization}
             >
               <ImUsers size={16} className="mr-3" />
@@ -285,13 +285,13 @@ export default function Advanced() {
                 Agent Customization
               </span>
             </div>
-            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer pb-2 text-xs sm:text-sm md:text-base">
+            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer pb-2 text-xs md:text-sm lg:text-base">
               <FaPhoneAlt size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
                 Call Logs
               </span>
             </div>
-            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer text-xs sm:text-sm md:text-base">
+            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer text-xs md:text-sm lg:text-base">
               <PiUserList size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
                 Account Settings
@@ -299,13 +299,13 @@ export default function Advanced() {
             </div>
           </nav>
           <div className="px-4 mb-24 md:mb-[70px] space-y-2">
-            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs sm:text-sm md:text-base">
+            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs md:text-sm lg:text-base">
               <LuSquareArrowOutUpRight size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
                 Updates & FAQ
               </span>
             </div>
-            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs sm:text-sm md:text-base">
+            <div className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs md:text-sm lg:text-base">
               <RxExit size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
                 Log out
@@ -319,14 +319,12 @@ export default function Advanced() {
           <div className="flex flex-col lg:flex-row gap-4 md:gap-6">
             {/* Left side */}
             <div className="w-full lg:w-1/5 bg-white rounded-xl p-4">
-              <button
-                className="w-full bg-purple-700 text-white px-4 py-2 rounded-md flex items-center justify-center gap-2 mb-6 hover:bg-purple-800 active:bg-purple-900"
-                onClick={handleDashboard}
+              <button className="w-full bg-purple-700 text-white px-4 py-2 rounded-md 
+              flex items-center justify-center gap-2 mb-6 text-sm md:text-base hover:bg-purple-800 transition-colors"
+              onClick={handleDashboard}
               >
                 <FaPlus size={14} />
-                <span className="text-xs sm:text-sm md:text-base">
-                  Create New Agent
-                </span>
+                <span>Create New Agent</span>
               </button>
 
               <div className="space-y-4">
@@ -335,7 +333,7 @@ export default function Advanced() {
                     {[1, 2, 3, 4, 5].map((num) => (
                       <div
                         key={num}
-                        className="text-xs sm:text-sm md:text-base font-medium flex items-center mb-6"
+                        className="text-sm md:text-base font-medium flex items-center mb-6"
                       >
                         <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
                           <AiOutlineUser
@@ -347,7 +345,7 @@ export default function Advanced() {
                         <label className="relative inline-flex items-center cursor-pointer ml-auto">
                           <input type="checkbox" className="sr-only peer" />
                           <div
-                            className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full
+                            className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-purple-500 rounded-full peer peer-checked:after:translate-x-full
                            peer-checked:after:border-white after:content-[''] 
                            after:absolute after:top-[2px] after:left-[2px] after:bg-white
                             after:border-gray-300 after:border after:rounded-full after:h-4 
@@ -364,14 +362,14 @@ export default function Advanced() {
             {/* Right side */}
             <div className="w-full lg:w-4/5">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mt-4">
-                {/* Tab buttons - Stack vertically on mobile, horizontal on larger screens */}
+                {/* Tab buttons - Stack vertically on mobile, horizontal scroll on tablet */}
                 <div className="flex flex-col sm:flex-row overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0 space-y-2 sm:space-y-0">
                   <span
                     onClick={() => {
                       setActiveTab("create");
-                      handleCreateAgent();
+                      handleAgentCustomization();
                     }}
-                    className={`px-3 md:px-4 py-2 cursor-pointer sm:rounded-l-md whitespace-nowrap text-sm ${"bg-gray-200 text-gray-700 hover:bg-gray-300 active:bg-gray-400"}`}
+                    className={`px-3 md:px-4 py-2 cursor-pointer sm:rounded-l-md whitespace-nowrap text-sm bg-gray-200 text-gray-700 hover:bg-gray-300`}
                   >
                     Agent
                   </span>
@@ -380,7 +378,7 @@ export default function Advanced() {
                       setActiveTab("voice");
                       handleVoice();
                     }}
-                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-sm bg-gray-200 text-gray-700`}
+                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-sm bg-gray-200 text-gray-700 hover:bg-gray-300`}
                   >
                     Voice
                   </span>
@@ -389,11 +387,7 @@ export default function Advanced() {
                       setActiveTab("analysis");
                       handleAnalysis();
                     }}
-                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-sm ${
-                      activeTab === "analysis"
-                        ? "bg-purple-700 text-white"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300 active:bg-gray-400"
-                    }`}
+                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-sm bg-gray-200 text-gray-700 hover:bg-gray-300`}
                   >
                     Analysis
                   </span>
@@ -402,11 +396,7 @@ export default function Advanced() {
                       setActiveTab("security");
                       handleSecurity();
                     }}
-                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-sm ${
-                      activeTab === "security"
-                        ? "bg-purple-700 text-white"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300 active:bg-gray-400"
-                    }`}
+                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-sm bg-gray-200 text-gray-700 hover:bg-gray-300`}
                   >
                     Security
                   </span>
@@ -415,22 +405,18 @@ export default function Advanced() {
                       setActiveTab("advanced");
                       handleAdvanced();
                     }}
-                    className={`px-3 md:px-4 py-2 cursor-pointer sm:rounded-r-md whitespace-nowrap text-sm ${
-                      activeTab === "advanced"
-                        ? "bg-purple-700 text-white"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300 active:bg-gray-400"
-                    }`}
+                    className={`px-3 md:px-4 py-2 cursor-pointer sm:rounded-r-md whitespace-nowrap text-sm bg-purple-700 text-white`}
                   >
                     Advanced
                   </span>
                 </div>
 
-                {/* Action buttons */}
+                {/* Action buttons - Full width on mobile, auto width on tablet/desktop */}
                 <div className="flex gap-2 w-full sm:w-auto">
-                  <button className="flex-1 sm:flex-none border border-black text-black px-4 py-2 rounded-md text-sm hover:bg-gray-100 active:bg-gray-200 transition-colors min-w-[80px]">
+                  <button className="flex-1 sm:flex-none border border-black text-black px-4 py-2 rounded-md text-sm hover:bg-gray-100 transition-colors min-w-[80px]">
                     Clear
                   </button>
-                  <button className="flex-1 sm:flex-none bg-purple-700 text-white px-4 py-2 rounded-md text-sm hover:bg-purple-800 active:bg-purple-900 transition-colors min-w-[80px]">
+                  <button className="flex-1 sm:flex-none bg-purple-700 text-white px-4 py-2 rounded-md text-sm hover:bg-purple-800 transition-colors min-w-[80px]">
                     Save
                   </button>
                 </div>

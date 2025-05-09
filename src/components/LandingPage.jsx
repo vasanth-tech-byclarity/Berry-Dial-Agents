@@ -59,7 +59,7 @@ export default function LandingPage() {
               BerryDial
             </div>
 
-            <div className="hidden md:block text-xs md:text-sm lg:text-base text-gray-500 mx-4 lg:mx-32">
+            <div className="hidden md:block text-xs sm:text-sm md:text-base text-gray-500 mx-4 lg:mx-32">
               Dashboard / <span className="text-black">Default</span>
             </div>
           </div>
@@ -76,7 +76,7 @@ export default function LandingPage() {
           </button>
           <div className="relative">
             <button
-              className="flex items-center gap-1 md:gap-2 text-xs md:text-sm lg:text-base text-gray-700 p-2"
+              className="flex items-center gap-1 md:gap-2 text-xs sm:text-sm md:text-base text-gray-700 p-2"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
               <AiOutlineUser className="text-base md:text-lg lg:text-xl" />
@@ -95,19 +95,19 @@ export default function LandingPage() {
                 ></div>
                 <div className="absolute right-0 mt-4 md:mt-4 w-28 md:w-48 bg-white border rounded-md shadow-lg z-20">
                   <div
-                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs md:text-sm lg:text-base mt-1 md:mt-0"
+                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs sm:text-sm md:text-base mt-1 md:mt-0"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Profile
                   </div>
                   <div
-                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs md:text-sm lg:text-base mt-1 md:mt-0"
+                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs sm:text-sm md:text-base mt-1 md:mt-0"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Settings
                   </div>
                   <div
-                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs md:text-sm lg:text-base mt-1 md:mt-0"
+                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs sm:text-sm md:text-base mt-1 md:mt-0"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Logout
@@ -123,13 +123,13 @@ export default function LandingPage() {
       <div className="flex flex-1 pt-14">
         {/* Sidebar */}
         <aside
-          className={`fixed lg:sticky top-14 left-0 h-[calc(100vh-3.5rem)] ${
-            isSidebarOpen ? "w-56" : "w-0 lg:w-16"
+          className={`fixed md:sticky top-14 left-0 h-[calc(100vh-3.5rem)] ${
+            isSidebarOpen ? "w-56" : "w-0 md:w-16"
           } border-r bg-white flex flex-col justify-between transition-all duration-300 shadow-sm z-40`}
         >
           <button
             onClick={toggleSidebar}
-            className="hidden lg:flex absolute -right-3 top-4 bg-white rounded-full p-0.5 shadow-md"
+            className="hidden md:flex absolute -right-3 top-4 bg-white rounded-full p-0.5 shadow-md"
           >
             {isSidebarOpen ? (
               <IoIosArrowDropleftCircle
@@ -146,7 +146,7 @@ export default function LandingPage() {
           <nav className="p-4 space-y-4">
             <div
               className="flex items-center text-purple-700 font-semibold cursor-pointer pt-2 text-xs md:text-sm lg:text-base"
-              onClick={handleAgentCustomization}
+              onClick={handleCreateAgent}
             >
               <PiChartPieSliceFill size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
@@ -175,7 +175,7 @@ export default function LandingPage() {
               </span>
             </div>
           </nav>
-          <div className="px-4 mb-24 lg:mb-[70px] space-y-2">
+          <div className="px-4 mb-24 md:mb-[70px] space-y-2">
             <div className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs md:text-sm lg:text-base">
               <LuSquareArrowOutUpRight size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
@@ -194,11 +194,11 @@ export default function LandingPage() {
         {/* Main content */}
         <main className="flex-1 min-h-[calc(100vh-3.5rem)] bg-gray-50 transition-all duration-300 overflow-y-auto w-full">
           <div className="flex flex-col items-center justify-center min-h-full p-4">
-            <button className="bg-purple-700 hover:bg-purple-800 text-white text-sm px-4 py-2 rounded flex items-center gap-2" onClick={handleCreateAgent}>
+            <button className="bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded flex items-center gap-2" onClick={handleCreateAgent}>
               <FaPlus size={14} />
-              Create New Agent
+              <span className="text-xs sm:text-sm md:text-base">Create New Agent</span>
             </button>
-            <div className="mt-4 bg-white text-gray-700 px-6 py-3 border rounded shadow-sm max-w-md w-full text-center">
+            <div className="mt-4 bg-white text-gray-700 px-6 py-3 border rounded shadow-sm max-w-md w-full text-center text-xs sm:text-sm md:text-base">
               You haven't created any agents yet. Start by setting up your first AI voice agent to manage conversations effortlessly
             </div>
           </div>
@@ -206,7 +206,7 @@ export default function LandingPage() {
       </div>
 
       {/* Footer */}
-      <footer className="fixed bottom-0 left-0 right-0 min-h-[40px] md:h-10 flex flex-col md:flex-row items-center justify-between px-4 md:px-6 py-2 md:py-8 text-xs md:text-sm lg:text-base border bg-white z-50">
+      <footer className="fixed bottom-0 left-0 right-0 min-h-[40px] md:h-10 flex flex-col md:flex-row items-center justify-between px-4 md:px-6 py-2 md:py-8 text-xs sm:text-sm md:text-base border bg-white z-50">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4 text-gray-500">
           <div>BerryDial</div>
           <div className="flex gap-4 ml-4 sm:ml-8">

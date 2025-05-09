@@ -286,6 +286,7 @@ export default function AgentCustomization() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+  const [isNotificationActive, setIsNotificationActive] = useState(false);
   const [activeTab, setActiveTab] = useState("create");
   const [useRag, setUseRag] = useState(true);
   const navigate = useNavigate();
@@ -332,19 +333,19 @@ export default function AgentCustomization() {
         <div className="flex items-center flex-1">
           <button
             onClick={toggleSidebar}
-            className="mr-3 text-gray-600 hover:text-purple-700 md:hidden"
+            className="mr-3 text-gray-600 hover:text-purple-700 lg:hidden"
           >
             {isSidebarOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
           </button>
           <div className="flex-1 flex items-center justify-between md:justify-start">
             <div
-              className="text-purple-700 font-bold text-base md:text-lg lg:text-xl"
+              className="text-purple-700 font-bold text-base md:text-lg lg:text-xl cursor-pointer"
               onClick={landingPage}
             >
               BerryDial
             </div>
 
-            <div className="hidden md:block text-xs md:text-sm lg:text-base text-gray-500 mx-32">
+            <div className="hidden md:block text-xs sm:text-sm md:text-base text-gray-500 mx-4 lg:mx-32">
               Dashboard / <span className="text-black">Default</span>
             </div>
           </div>
@@ -353,7 +354,7 @@ export default function AgentCustomization() {
         <div className="flex items-center">
           <button
             className={`text-gray-500 hover:text-purple-700 p-1 ${
-              isDropdownOpen ? "text-purple-700" : ""
+              isNotificationActive ? "text-purple-700" : ""
             }`}
             onClick={() => setIsNotificationActive(!isNotificationActive)}
           >
@@ -361,7 +362,7 @@ export default function AgentCustomization() {
           </button>
           <div className="relative">
             <button
-              className="flex items-center gap-1 md:gap-2 text-xs md:text-sm lg:text-base text-gray-700 p-2"
+              className="flex items-center gap-1 md:gap-2 text-xs sm:text-sm md:text-base text-gray-700 p-2"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
               <AiOutlineUser className="text-base md:text-lg lg:text-xl" />
@@ -380,19 +381,19 @@ export default function AgentCustomization() {
                 ></div>
                 <div className="absolute right-0 mt-4 md:mt-4 w-28 md:w-48 bg-white border rounded-md shadow-lg z-20">
                   <div
-                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs md:text-sm lg:text-base mt-1 md:mt-0"
+                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs sm:text-sm md:text-base mt-1 md:mt-0"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Profile
                   </div>
                   <div
-                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs md:text-sm lg:text-base mt-1 md:mt-0"
+                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs sm:text-sm md:text-base mt-1 md:mt-0"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Settings
                   </div>
                   <div
-                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs md:text-sm lg:text-base mt-1 md:mt-0"
+                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs sm:text-sm md:text-base mt-1 md:mt-0"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Logout
@@ -430,7 +431,7 @@ export default function AgentCustomization() {
           </button>
           <nav className="p-4 space-y-4">
             <div
-              className="flex items-center text-purple-700 font-semibold cursor-pointer pt-2 text-xs md:text-sm lg:text-base"
+              className="flex items-center text-black hover:text-purple-700 cursor-pointer pt-2 text-xs md:text-sm lg:text-base"
               onClick={handleCreateAgent}
             >
               <PiChartPieSliceFill size={16} className="mr-3" />
@@ -439,7 +440,7 @@ export default function AgentCustomization() {
               </span>
             </div>
             <div
-              className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs md:text-sm lg:text-base"
+              className="flex items-center text-purple-700 font-semibold cursor-pointer py-2 text-xs md:text-sm lg:text-base"
               onClick={handleAgentCustomization}
             >
               <ImUsers size={16} className="mr-3" />
@@ -478,7 +479,7 @@ export default function AgentCustomization() {
 
         {/* Main Content */}
         <main className="flex-1 bg-gray-50 min-h-[calc(100vh-3.5rem)] overflow-y-auto p-4 md:p-6">
-          <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
+          <div className="flex flex-col lg:flex-row gap-4 md:gap-6">
             {/* Left side - Full width on mobile/tablet, 20% on desktop */}
             <div className="w-full lg:w-1/5 bg-white rounded-xl p-4">
               <button className="w-full bg-purple-700 text-white px-4 py-2 rounded-md 

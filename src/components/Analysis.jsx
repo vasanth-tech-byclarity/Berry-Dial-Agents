@@ -28,6 +28,7 @@ export default function Analysis() {
   const handleAnalysis = () => navigate("/analysis");
   const handleSecurity = () => navigate("/security");
   const handleAdvanced = () => navigate("/advanced");
+  const handleCreateAgent = () => navigate("/create-agent");
 
   React.useEffect(() => {
     const handleResize = () => {
@@ -45,7 +46,7 @@ export default function Analysis() {
         <div className="flex items-center flex-1">
           <button
             onClick={toggleSidebar}
-            className="mr-3 text-gray-600 hover:text-purple-700 md:hidden"
+            className="mr-3 text-gray-600 hover:text-purple-700 lg:hidden"
           >
             {isSidebarOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
           </button>
@@ -57,7 +58,7 @@ export default function Analysis() {
               BerryDial
             </div>
 
-            <div className="hidden md:block text-xs md:text-sm lg:text-base text-gray-500 mx-32">
+            <div className="hidden md:block text-xs sm:text-sm md:text-base text-gray-500 mx-4 lg:mx-32">
               Dashboard / <span className="text-black">Default</span>
             </div>
           </div>
@@ -74,7 +75,7 @@ export default function Analysis() {
           </button>
           <div className="relative">
             <button
-              className="flex items-center gap-1 md:gap-2 text-xs md:text-sm lg:text-base text-gray-700 p-2"
+              className="flex items-center gap-1 md:gap-2 text-xs sm:text-sm md:text-base text-gray-700 p-2"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
               <AiOutlineUser className="text-base md:text-lg lg:text-xl" />
@@ -93,19 +94,19 @@ export default function Analysis() {
                 ></div>
                 <div className="absolute right-0 mt-4 md:mt-4 w-28 md:w-48 bg-white border rounded-md shadow-lg z-20">
                   <div
-                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs md:text-sm lg:text-base mt-1 md:mt-0"
+                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs sm:text-sm md:text-base mt-1 md:mt-0"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Profile
                   </div>
                   <div
-                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs md:text-sm lg:text-base mt-1 md:mt-0"
+                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs sm:text-sm md:text-base mt-1 md:mt-0"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Settings
                   </div>
                   <div
-                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs md:text-sm lg:text-base mt-1 md:mt-0"
+                    className="py-2 px-4 hover:bg-gray-50 cursor-pointer text-xs sm:text-sm md:text-base mt-1 md:mt-0"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     Logout
@@ -143,8 +144,8 @@ export default function Analysis() {
           </button>
           <nav className="p-4 space-y-4">
             <div
-              className="flex items-center text-purple-700 font-semibold cursor-pointer pt-2 text-xs md:text-sm lg:text-base"
-              onClick={handleDashboard}
+              className="flex items-center text-black hover:text-purple-700 cursor-pointer pt-2 text-xs md:text-sm lg:text-base"
+              onClick={handleCreateAgent}
             >
               <PiChartPieSliceFill size={16} className="mr-3" />
               <span className={isSidebarOpen ? "inline" : "hidden"}>
@@ -152,7 +153,7 @@ export default function Analysis() {
               </span>
             </div>
             <div
-              className="flex items-center text-black hover:text-purple-700 cursor-pointer py-2 text-xs md:text-sm lg:text-base"
+              className="flex items-center text-purple-700 font-semibold cursor-pointer py-2 text-xs md:text-sm lg:text-base"
               onClick={handleAgentCustomization}
             >
               <ImUsers size={16} className="mr-3" />
@@ -192,7 +193,7 @@ export default function Analysis() {
         {/* Main Content */}
         <main className="flex-1 bg-gray-50 min-h-[calc(100vh-3.5rem)] overflow-y-auto p-4 md:p-6">
           <div className="flex flex-col lg:flex-row gap-4 md:gap-6">
-            {/* Left side */}
+            {/* Left side - Full width on mobile/tablet, 20% on desktop */}
             <div className="w-full lg:w-1/5 bg-white rounded-xl p-4">
               <button className="w-full bg-purple-700 text-white px-4 py-2 rounded-md 
               flex items-center justify-center gap-2 mb-6 text-sm md:text-base hover:bg-purple-800 transition-colors"
@@ -234,38 +235,59 @@ export default function Analysis() {
               </div>
             </div>
 
-            {/* Right side */}
+            {/* Right side - Full width on mobile/tablet, 80% on desktop */}
             <div className="w-full lg:w-4/5">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mt-4">
+                {/* Tab buttons - Stack vertically on mobile, horizontal scroll on tablet */}
                 <div className="flex flex-col sm:flex-row overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0 space-y-2 sm:space-y-0">
-                  <nav className="flex flex-col sm:flex-row gap-2 sm:gap-0">
-                    {[
-                      { name: "Agent", handler: handleAgentCustomization },
-                      { name: "Voice", handler: handleVoice },
-                      { name: "Analysis", handler: handleAnalysis },
-                      { name: "Security", handler: handleSecurity },
-                      { name: "Advanced", handler: handleAdvanced },
-                    ].map((tab, index, arr) => (
-                      <button
-                        key={tab.name.toLowerCase()}
-                        onClick={tab.handler}
-                        className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-sm text-center
-                          ${index === 0 ? "rounded-l-md" : ""} 
-                          ${index === arr.length - 1 ? "rounded-r-md" : ""}
-                          ${
-                            tab.name === "Analysis"
-                              ? "bg-purple-700 text-white"
-                              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                          }`}
-                        role="tab"
-                        aria-selected={tab.name === "Analysis"}
-                      >
-                        {tab.name}
-                      </button>
-                    ))}
-                  </nav>
+                  <span
+                    onClick={() => {
+                      setActiveTab("create");
+                      handleAgentCustomization();
+                    }}
+                    className={`px-3 md:px-4 py-2 cursor-pointer sm:rounded-l-md whitespace-nowrap text-sm bg-gray-200 text-gray-700 hover:bg-gray-300`}
+                  >
+                    Agent
+                  </span>
+                  <span
+                    onClick={() => {
+                      setActiveTab("voice");
+                      handleVoice();
+                    }}
+                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-sm bg-gray-200 text-gray-700 hover:bg-gray-300`}
+                  >
+                    Voice
+                  </span>
+                  <span
+                    onClick={() => {
+                      setActiveTab("analysis");
+                      handleAnalysis();
+                    }}
+                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-sm bg-purple-700 text-white`}
+                  >
+                    Analysis
+                  </span>
+                  <span
+                    onClick={() => {
+                      setActiveTab("security");
+                      handleSecurity();
+                    }}
+                    className={`px-3 md:px-4 py-2 cursor-pointer whitespace-nowrap text-sm bg-gray-200 text-gray-700 hover:bg-gray-300`}
+                  >
+                    Security
+                  </span>
+                  <span
+                    onClick={() => {
+                      setActiveTab("advanced");
+                      handleAdvanced();
+                    }}
+                    className={`px-3 md:px-4 py-2 cursor-pointer sm:rounded-r-md whitespace-nowrap text-sm bg-gray-200 text-gray-700 hover:bg-gray-300`}
+                  >
+                    Advanced
+                  </span>
                 </div>
 
+                {/* Action buttons - Full width on mobile, auto width on tablet/desktop */}
                 <div className="flex gap-2 w-full sm:w-auto">
                   <button className="flex-1 sm:flex-none border border-black text-black px-4 py-2 rounded-md text-sm hover:bg-gray-100 transition-colors min-w-[80px]">
                     Clear
@@ -278,7 +300,7 @@ export default function Analysis() {
 
               <div className="space-y-6 mt-6 mb-24">
                 <div className="flex justify-between items-center">
-                  <h2 className="text-base md:text-lg font-semibold">
+                  <h2 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold">
                     Analysis
                   </h2>
                 </div>
@@ -287,8 +309,7 @@ export default function Analysis() {
                   <div className="p-4 md:p-5 space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                       <div>
-                        <label className="block font-semibold
-                         text-xs sm:text-sm md:text-base text-[#333333DE] leading-[17px] font-inter mb-3">
+                        <label className="block font-semibold text-xs sm:text-sm md:text-base lg:text-lg text-[#333333DE] leading-[17px] font-inter mb-3">
                           Evaluation criteria
                         </label>
                         <div className="border border-gray-200 rounded-md p-3 md:p-2">
@@ -296,7 +317,8 @@ export default function Analysis() {
                             <p className="text-xs sm:text-sm md:text-base text-gray-500 w-full sm:w-[70%]">
                               Define custom criteria to evaluate conversations against. You can find the evaluation results for each conversation in <u>the history tab</u>.
                             </p>
-                            <button className="w-full sm:w-[100px] px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 text-xs md:text-sm">
+                            <button className="w-full sm:w-[100px] px-4 py-2 bg-black text-white rounded-md
+                              text-xs sm:text-sm md:text-base">
                               Add Criteria
                             </button>
                           </div>
@@ -304,8 +326,7 @@ export default function Analysis() {
                       </div>
 
                       <div>
-                        <label className="block font-semibold
-                         text-xs sm:text-sm md:text-base text-[#333333DE] leading-[17px] font-inter mb-3">
+                        <label className="block font-semibold text-xs sm:text-sm md:text-base lg:text-lg text-[#333333DE] leading-[17px] font-inter mb-3">
                           Data collection
                         </label>
                         <div className="border border-gray-200 rounded-md p-3 md:p-4">
@@ -313,7 +334,8 @@ export default function Analysis() {
                             <p className="text-xs sm:text-sm md:text-base text-gray-500 w-full sm:w-[70%]">
                               Define custom data specifications to extract from conversation transcripts. You can find the evaluation results for each conversation in <u>the history tab</u>.
                             </p>
-                            <button className="w-full sm:w-[100px] px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 text-xs md:text-sm">
+                            <button className="w-full sm:w-[100px] px-4 py-2 bg-black text-white rounded-md 
+                             text-xs sm:text-sm md:text-base">
                               Add Item
                             </button>
                           </div>
