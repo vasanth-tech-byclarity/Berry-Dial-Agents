@@ -427,7 +427,7 @@ export default function Advanced() {
                 <h2 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold">Advanced</h2>
               </div>
 
-              <div className="max-w-3xl border p-4 md:p-5 rounded-lg font-sans space-y-4 mt-6 mb-24">
+              <div className="max-w-3xl bg-white border p-4 md:p-5 rounded-lg font-sans space-y-4 mt-6 mb-24">
                 <h3 className="font-semibold mb-2 text-xs sm:text-sm md:text-base">Turn timeout</h3>
                 <InputRow
                   description="The maximum number of seconds since the user last spoke. If exceeded, the agent will respond and force a turn. A value of -1 means the agent will never timeout and always wait for a response from the user."
